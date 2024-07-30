@@ -122,6 +122,14 @@ html {
 }
 
 @media (max-width: 960px) {
+  body,
+  html {
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
   .mini-menu {
     display: none;
   }
