@@ -9,6 +9,10 @@
 body {
   display: flex;
   flex-direction: column;
+}
+
+body,
+html {
   overflow-x: hidden;
 }
 
