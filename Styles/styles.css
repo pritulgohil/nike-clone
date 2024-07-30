@@ -4,23 +4,23 @@
   padding: 0;
   font-family: Helvetica;
   letter-spacing: 0.4px;
+  max-width: 100%;
 }
 
 body {
   display: flex;
   flex-direction: column;
-  overflow-x: hidden;
 }
 
 body,
 html {
-  overflow-x: hidden;
+  width: 100%;
+  max-width: 100%;
 }
 
 .mini-menu {
   background-color: #f5f5f5;
   padding: 4px 50px;
-  max-width: 100%;
 }
 
 .sub-brand-logos {
@@ -32,7 +32,6 @@ html {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  max-width: 100%;
 }
 
 .mini-menu-links {
@@ -51,7 +50,6 @@ html {
   align-items: center;
   justify-content: space-between;
   position: relative;
-  max-width: 100%;
 }
 
 .brand-logo {
@@ -81,7 +79,6 @@ html {
   background-color: #f5f5f5;
   padding: 5px 70px 5px 10px;
   border-radius: 50px;
-  max-width: 100%;
 }
 
 .search-bar-container p {
@@ -93,7 +90,6 @@ html {
   display: flex;
   align-items: center;
   gap: 20px;
-  max-width: 100%;
 }
 
 .mobile-search-bar {
@@ -106,7 +102,7 @@ html {
 
 .hamburger-menu-mobile {
   height: 100vh;
-  position: absolute;
+  position: fixed;
   background-color: white;
   top: 0;
   right: -100%;
@@ -130,7 +126,6 @@ html {
 @media (max-width: 960px) {
   body,
   html {
-    overflow-x: hidden;
     width: 100%;
     max-width: 100%;
     box-sizing: border-box;
@@ -158,16 +153,10 @@ html {
 
   .main-navbar-container {
     padding: 0px 22px;
-    max-width: 100%;
   }
 
   .wishlist-button {
     display: none;
-  }
-
-  .hamburger-menu-mobile {
-    display: none;
-    background-color: red;
   }
 
   .brand-menu {
@@ -180,7 +169,6 @@ html {
     padding: 12px 30px;
     font-size: 20px;
     font-weight: 500;
-    max-width: 100%;
   }
 
   .mobile-menu-padding {
@@ -190,7 +178,6 @@ html {
     font-weight: 500;
     gap: 15px;
     align-items: center;
-    max-width: 100%;
   }
 
   .brand-flex svg {
@@ -204,7 +191,6 @@ html {
     line-height: 30px;
     color: rgb(100, 100, 100);
     padding: 12px 30px;
-    max-width: 100%;
   }
 
   .black {
@@ -216,7 +202,6 @@ html {
     margin-top: 10px;
     display: flex;
     gap: 10px;
-    max-width: 100%;
   }
 
   .button-borders {
@@ -224,7 +209,6 @@ html {
     border-radius: 18px;
     border: none;
     font-size: 15px;
-    max-width: 100%;
   }
 
   .join-us {
