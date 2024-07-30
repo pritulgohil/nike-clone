@@ -167,6 +167,7 @@ html {
 
   .hamburger-menu-mobile {
     display: none;
+    background-color: red;
   }
 
   .brand-menu {
