@@ -111,6 +111,7 @@ html {
   -webkit-box-shadow: -2px 0px 20px -10px rgba(171, 171, 171, 1);
   -moz-box-shadow: -2px 0px 20px -10px rgba(171, 171, 171, 1);
   box-shadow: -2px 0px 20px -10px rgba(171, 171, 171, 1);
+  overflow-y: auto;
 }
 
 .hamburger-menu-mobile.open {
@@ -121,6 +122,10 @@ html {
   padding: 30px;
   display: flex;
   flex-direction: row-reverse;
+}
+
+.bottom-padding {
+  padding-bottom: 150px;
 }
 
 @media (max-width: 960px) {
@@ -202,6 +207,14 @@ html {
     margin-top: 10px;
     display: flex;
     gap: 10px;
+  }
+
+  .nike-member-buttons button {
+    cursor: pointer;
+  }
+
+  .nike-member-buttons button:hover {
+    background-color: #808080;
   }
 
   .button-borders {
