@@ -2,14 +2,17 @@ let hamBurgerMenu = document.getElementById("hamburger-menu");
 let hamBurgerDiv = document.getElementById("hamburger-div");
 let closeButton = document.getElementById("close-button");
 let mainBody = document.getElementById("main-navbar");
+let mainDiv = document.getElementById("main-div-section");
 
 hamBurgerMenu.addEventListener("click", toggleHamBurgerMenu);
 closeButton.addEventListener("click", closeHamburger);
 
 function toggleHamBurgerMenu() {
   hamBurgerDiv.classList.add("open");
-  mainBody.style.opacity = "0.5";
+
+  console.log(mainDiv);
   hamBurgerDiv.style.opacity = "1";
+  mainBody.style.opacity = "0.5";
 }
 
 function closeHamburger() {
@@ -21,6 +24,7 @@ function closeHamburger() {
 function handleResize() {
   if (window.matchMedia("(min-width: 960px)").matches) {
     hamBurgerDiv.style.display = "none";
+    mainBody.style.opacity = "1";
   } else {
     hamBurgerDiv.style.display = "block";
   }
