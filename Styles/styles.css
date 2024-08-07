@@ -276,10 +276,73 @@ html {
   padding: 8px 15px;
   border-radius: 20px;
   font-size: 18px;
+  cursor: pointer;
 }
 
 .shoe-models-relative {
   position: relative;
+}
+
+.horizontal-line {
+  margin: 100px 44px;
+  background-color: rgb(220, 220, 220);
+  height: 1px;
+}
+
+.footer {
+  margin-bottom: 50px;
+}
+
+.footer-container {
+  display: flex;
+  width: 70%;
+  gap: 100px;
+  justify-content: space-between;
+}
+
+.footer-section-1 {
+  padding: 0px 0px 44px 44px;
+}
+
+.footer-section-1-content {
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  font-size: 13px;
+  color: #808080;
+  width: 100%;
+}
+
+.flex-footer-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+}
+
+.flex-column {
+  display: flex;
+  gap: 6px;
+  color: #808080;
+  align-items: center;
+  padding-right: 44px;
+}
+
+.footer-end {
+  margin-top: 100px;
+  padding: 0px 44px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #808080;
+}
+
+.footer-end img {
+  width: 30px;
+}
+
+.nds-summary-control {
+  display: none;
 }
 
 @media (max-width: 960px) {
@@ -429,5 +492,88 @@ html {
 
   .shoe-models-relative {
     position: relative;
+  }
+
+  .horizontal-line {
+    margin: 100px 22px;
+  }
+
+  .flex-footer-container {
+    flex-direction: column;
+    gap: 50px;
+  }
+
+  .footer-container {
+    flex-direction: column;
+    width: 100%;
+    gap: 50px;
+  }
+
+  .footer-section-1 {
+    padding: 0px 22px;
+  }
+
+  .flex-column {
+    padding: 0px 18px;
+    width: 100%;
+  }
+
+  .footer-end {
+    justify-content: center;
+  }
+
+  .resources-footer {
+    opacity: 0;
+    max-height: 0;
+    transition: opacity 0.5s, max-height 0.5s;
+  }
+
+  .resources-footer.show {
+    opacity: 1;
+    max-height: 500px;
+  }
+
+  .help-footer {
+    opacity: 0;
+    max-height: 0;
+    transition: opacity 0.5s, max-height 0.5s;
+  }
+
+  .help-footer.show {
+    opacity: 1;
+    max-height: 500px;
+  }
+
+  .footer-header {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .footer-header-2 {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .nds-summary-control {
+    display: block;
+    transition: transform 0.5s;
+  }
+
+  .nds-summary-control.rotate {
+    transform: rotate(-180deg);
+  }
+
+  .footer-divider {
+    margin: 0px 22px;
+    background-color: rgb(220, 220, 220);
+    height: 1px;
+  }
+
+  .footer-section-1-content {
+    margin-top: 20px;
+  }
+
+  .hide-mobile {
+    display: none;
   }
 }

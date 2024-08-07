@@ -25,6 +25,15 @@ let metcon = document.getElementById("metcon-mobile");
 let mercurial = document.getElementById("mercurial-mobile");
 let latestGreatestSection = document.getElementById("latest-greatest");
 let latestHeaderContainer = document.getElementById("latest-header-container");
+let footerResourceToggler = document.getElementById("footer-toogle-resource");
+let footerResourceList = document.getElementById("footer-resource");
+let footerHelpList = document.getElementById("footer-toogle-help");
+
+console.log(footerHelpList);
+
+footerHelpList.addEventListener("click", function () {
+  console.log("hello");
+});
 
 hamBurgerMenu.addEventListener("click", toggleHamBurgerMenu);
 closeButton.addEventListener("click", closeHamburger);
@@ -105,39 +114,10 @@ function leftScrollShopIcons() {
 rightNavigateIcon.addEventListener("click", rightScrollShopIcons);
 leftNavigateIcon.addEventListener("click", leftScrollShopIcons);
 
-let lastScrollLeft = 0;
-let isScrolling;
-const TOLERANCE = 2;
+function footerResourceTogglerAction() {
+  footerResourceList.classList.toggle("show");
+  footerResourceToggler.classList.toggle("rotate");
+  console.log("Hello");
+}
 
-const container = document.getElementById("shopOurIconsContainer");
-
-// shopOurIconsContainer.addEventListener("scroll", function () {
-//   let currentScrollLeft = shopOurIconsContainer.scrollLeft;
-//   if (currentScrollLeft > lastScrollLeft) {
-//     console.log("right");
-//     latestGreatestSection.style.padding = "0px 0px 0px 0px";
-//   } else if (currentScrollLeft < lastScrollLeft) {
-//     console.log("left");
-//   }
-//   lastScrollLeft = currentScrollLeft;
-// });
-
-// shopOurIconsContainer.addEventListener("scroll", function () {
-//   let currentScrollLeft = shopOurIconsContainer.scrollLeft;
-
-//   if (currentScrollLeft > lastScrollLeft) {
-//     console.log("right");
-//     latestGreatestSection.style.padding = "0px 0px 0px 0px";
-//     latestHeaderContainer.style.padding = "0px 44px 0px 44px";
-//   } else if (currentScrollLeft < lastScrollLeft) {
-//     console.log("left");
-//   }
-
-//   if (currentScrollLeft === 0) {
-//     console.log("Reached left end");
-//     latestGreatestSection.style.padding = "0px 0px 0px 44px";
-//     latestHeaderContainer.style.padding = "0px 44px 0px 0px";
-//   }
-
-//   lastScrollLeft = currentScrollLeft;
-// });
+footerResourceToggler.addEventListener("click", footerResourceTogglerAction);
