@@ -7,6 +7,11 @@ let leftNavigation = document.getElementById("left-navigate");
 let rightNavigation = document.getElementById("right-navigate");
 let rightNavigateIcon = document.getElementById("right-navigate-icon");
 let leftNavigateIcon = document.getElementById("left-navigate-icon");
+let leftSportNavigator = document.getElementById("left-navigate-sport");
+let rightSportNavigator = document.getElementById("right-navigate-sport");
+let shopBySportNavigator = document.getElementById(
+  "shop-by-sport-card-container"
+);
 
 let htmlBody = document.getElementById("main-body");
 let latestGreatestContainer = document.getElementById(
@@ -28,12 +33,14 @@ let latestHeaderContainer = document.getElementById("latest-header-container");
 let footerResourceToggler = document.getElementById("footer-toogle-resource");
 let footerResourceList = document.getElementById("footer-resource");
 let footerHelpList = document.getElementById("footer-toogle-help");
-
-console.log(footerHelpList);
-
-footerHelpList.addEventListener("click", function () {
-  console.log("hello");
-});
+let runningSport = document.getElementById("running-sport-mobile");
+let footballSport = document.getElementById("football-sport-mobile");
+let basketballSport = document.getElementById("basketball-mobile");
+let trainingAndGym = document.getElementById("training-and-gym-mobile");
+let tennisMobile = document.getElementById("tennis-mobile");
+let yogaMobile = document.getElementById("yoga-mobile");
+let skateboardingMobile = document.getElementById("skateboarding-mobile");
+let danceMobile = document.getElementById("dance-mobile");
 
 hamBurgerMenu.addEventListener("click", toggleHamBurgerMenu);
 closeButton.addEventListener("click", closeHamburger);
@@ -64,6 +71,14 @@ function handleResize() {
     pegasus.src = "Assets/pegasus.jpg";
     metcon.src = "Assets/metcon.jpg";
     mercurial.src = "Assets/mercurial.jpg";
+    runningSport.src = "Assets/running.jpg";
+    footballSport.src = "Assets/football.jpg";
+    basketballSport.src = "Assets/basketball.jpg";
+    trainingAndGym.src = "Assets/training-and-gym.jpg";
+    tennisMobile.src = "Assets/tennis.jpg";
+    yogaMobile.src = "Assets/yoga.jpg";
+    skateboardingMobile.src = "Assets/skateboarding.jpg";
+    danceMobile.src = "Assets/dance.jpg";
   } else {
     hamBurgerDiv.style.display = "block";
     airMaxMobile.src = "Assets/air-max-mobile.jpg";
@@ -74,6 +89,14 @@ function handleResize() {
     pegasus.src = "Assets/pegasus-mobile.png";
     metcon.src = "Assets/metcon-mobile.jpg";
     mercurial.src = "Assets/mercurial-mobile.jpg";
+    runningSport.src = "Assets/running-mobile.jpg";
+    footballSport.src = "Assets/football-mobile.jpg";
+    basketballSport.src = "Assets/basketball-mobile.jpg";
+    trainingAndGym.src = "Assets/training-and-gym-mobile.jpg";
+    tennisMobile.src = "Assets/tennis-mobile.jpg";
+    yogaMobile.src = "Assets/yoga-mobile.jpg";
+    skateboardingMobile.src = "Assets/skateboarding-mobile.jpg";
+    danceMobile.src = "Assets/dance-mobile.jpg";
   }
 }
 
@@ -110,6 +133,23 @@ function leftScrollShopIcons() {
     behavior: "smooth",
   });
 }
+
+function rightSportNavigatorAction() {
+  shopBySportNavigator.scrollBy({
+    left: 300,
+    behavior: "smooth",
+  });
+}
+
+function leftSportNavigatorAction() {
+  shopBySportNavigator.scrollBy({
+    left: -300,
+    behavior: "smooth",
+  });
+}
+
+leftSportNavigator.addEventListener("click", leftSportNavigatorAction);
+rightSportNavigator.addEventListener("click", rightSportNavigatorAction);
 
 rightNavigateIcon.addEventListener("click", rightScrollShopIcons);
 leftNavigateIcon.addEventListener("click", leftScrollShopIcons);
