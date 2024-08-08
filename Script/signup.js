@@ -17,36 +17,6 @@ let lastNameInput = document.getElementById("lastname-input");
 let policyCheckbox = document.getElementById("policy-checkbox");
 let policyText = document.getElementById("nike-policy");
 
-function validationFailStyle() {
-  if (emailInput.value === "") {
-    emailInput.style.borderColor = "red";
-    emailInput.style.borderWidth = "2px";
-    emailError.style.display = "block";
-  }
-
-  if (passwordInput.value === "") {
-    passwordInput.style.borderColor = "red";
-    passwordInput.style.borderWidth = "2px";
-    passwordError.style.display = "block";
-  }
-
-  if (firstNameInput.value === "") {
-    firstNameInput.style.borderWidth = "2px";
-    firstNameInput.style.borderColor = "red";
-    firstNameError.style.display = "block";
-  }
-
-  if (lastNameInput.value === "") {
-    lastNameInput.style.borderWidth = "2px";
-    lastNameInput.style.borderColor = "red";
-    lastNameError.style.display = "block";
-  }
-
-  if (!policyCheckbox.checked) {
-    policyText.style.color = "red";
-  }
-}
-
 function validateFields() {
   let isValid = true;
 
