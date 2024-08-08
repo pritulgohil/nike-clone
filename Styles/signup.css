@@ -1,0 +1,188 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Helvetica;
+  letter-spacing: 0.4px;
+  max-width: 100%;
+}
+
+.brand-logos {
+  display: flex;
+}
+
+.main {
+  display: flex;
+  justify-content: center;
+}
+
+.main-container {
+  width: 32%;
+  margin-top: 50px;
+}
+
+.nike-logo svg {
+  width: 50px;
+  height: 50px;
+}
+
+.signup-header {
+  font-weight: 300;
+  font-size: 30px;
+  margin-top: 30px;
+}
+
+.country-container {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 15px;
+  color: #808080;
+}
+
+.country-container img {
+  width: 30px;
+}
+
+.input-container {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.email-container input {
+  width: 100%;
+  padding: 15px 10px;
+  font-size: 15px;
+  border-radius: 6px;
+  border: 1px solid gray;
+}
+
+.name-container {
+  display: flex;
+  gap: 20px;
+  width: 100%;
+}
+
+.name-container input {
+  width: 100%;
+  padding: 15px 10px;
+  font-size: 15px;
+  border-radius: 6px;
+  border: 1px solid gray;
+}
+
+.password-container input {
+  width: 100%;
+  padding: 15px 10px;
+  font-size: 15px;
+  border-radius: 6px;
+  border: 1px solid gray;
+}
+
+.password-warning {
+  margin-top: 15px;
+  font-size: 12px;
+  margin-left: 12px;
+  color: gray;
+  font-weight: 100;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.shopping-preference-container select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down"><path d="M6 9l6 6 6-6"/></svg>')
+    no-repeat right 10px center;
+  background-size: 20px;
+  width: 100%;
+  padding: 15px 10px;
+  font-size: 15px;
+  border-radius: 6px;
+  border: 1px solid gray;
+}
+
+.shopping-preference-container option {
+  color: gray;
+}
+
+.sign-up-promotion {
+  display: flex;
+  gap: 10px;
+  align-items: start;
+}
+
+.sign-up-promotion input[type="checkbox"] {
+  cursor: pointer;
+}
+
+.sign-up-promotion p {
+  display: inline-block;
+  margin-left: 10px;
+  vertical-align: middle;
+  line-height: 1.5;
+}
+
+.policy-text {
+  font-weight: 700;
+  text-decoration: underline;
+}
+
+.button-container {
+  display: flex;
+  justify-content: end;
+  margin-top: 20px;
+  margin-bottom: 50px;
+  align-items: center;
+}
+
+.button-container button {
+  padding: 15px 20px;
+  border: none;
+  border-radius: 30px;
+  font-size: 15px;
+  background-color: black;
+  color: white;
+  cursor: pointer;
+}
+
+.button-container button:hover {
+  background-color: grey;
+}
+
+.validation-error {
+  color: red;
+  font-size: 15px;
+  margin-top: 10px;
+  display: none;
+}
+
+.first-name-container {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+}
+
+.last-name-container {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+}
+
+.first-name-container input {
+  width: 100%;
+}
+
+.last-name-container input {
+  width: 100%;
+}
+
+@media (max-width: 960px) {
+  .main-container {
+    width: 90%;
+  }
+}

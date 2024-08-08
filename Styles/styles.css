@@ -43,6 +43,11 @@ html {
   gap: 10px;
 }
 
+.mini-menu-links a {
+  text-decoration: none;
+  color: black;
+}
+
 .mini-menu-links p {
   font-size: 12px;
   font-weight: 550;

@@ -1,3 +1,7 @@
+// All the HomePage DOM Elements
+
+// Navbar, Carousels, and Footer -- Start
+
 let hamBurgerMenu = document.getElementById("hamburger-menu");
 let hamBurgerDiv = document.getElementById("hamburger-div");
 let closeButton = document.getElementById("close-button");
@@ -161,3 +165,5 @@ function footerResourceTogglerAction() {
 }
 
 footerResourceToggler.addEventListener("click", footerResourceTogglerAction);
+
+// Navbar, Carousels, and Footer -- Start
