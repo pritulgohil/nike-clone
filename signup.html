@@ -95,15 +95,20 @@
             <input id="user-password" type="password" placeholder="Password*" />
             <p id="password-error" class="validation-error">Required</p>
             <div class="password-warning">
-              <p>X Minimum 8 characters</p>
-              <p>X Uppercase, lowercase letters and one number</p>
+              <p id="first-password-validation">
+                <span id="cross-1">✘</span> Minimum 8 characters
+              </p>
+              <p id="second-password-validation">
+                <span id="cross-2">✘</span> Uppercase, lowercase letters and one
+                number
+              </p>
             </div>
           </div>
           <div class="shopping-preference-container">
-            <select id="gender" name="gender">
+            <select id="shopping-preference" name="shopping-preference">
               <option value="" disabled selected>Shopping Preference</option>
-              <option value="men">Men</option>
-              <option value="women">Women</option>
+              <option value="Men">Men</option>
+              <option value="Women">Women</option>
             </select>
           </div>
           <div class="sign-up-promotion">
@@ -121,8 +126,13 @@
               <span class="policy-text">Terms of Use.</span>
             </p>
           </div>
-          <div class="button-container">
+          <div id="button-container" class="button-container">
             <button id="create-account">Create Account</button>
+          </div>
+          <div id="spinner-container" class="spinner-main-container">
+            <div class="spinner-container">
+              <div class="loader"></div>
+            </div>
           </div>
         </div>
         <!-- inputs -- End -->

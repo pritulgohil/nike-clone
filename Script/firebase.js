@@ -5,6 +5,12 @@ import {
   createUserWithEmailAndPassword,
 } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js";
 
+import {
+  getDatabase,
+  ref,
+  set,
+} from "https://www.gstatic.com/firebasejs/9.6.1/firebase-database.js";
+
 const firebaseConfig = {
   apiKey: "AIzaSyBIZIQf24eqO3wrEjOoU5xC6Pw3sSNSfqQ",
   authDomain: "nike-4eac9.firebaseapp.com",
@@ -17,4 +23,11 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 
-export { initializeApp, getAuth, createUserWithEmailAndPassword };
+export {
+  initializeApp,
+  getAuth,
+  createUserWithEmailAndPassword,
+  getDatabase,
+  ref,
+  set,
+};
