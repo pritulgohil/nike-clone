@@ -1,40 +1,48 @@
 * {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
   font-family: Helvetica;
+  letter-spacing: 0.4px;
+  max-width: 100%;
 }
 
-.main {
+.main-container {
   display: flex;
   justify-content: center;
 }
 
-.main-container {
-  width: 30%;
-  margin-top: 40px;
-}
-
 .brand-logo-container {
   display: flex;
-  gap: 10px;
 }
 
-.brand svg {
+.brand-logo svg {
   width: 50px;
   height: 50px;
 }
 
-.form-text {
+.form-container {
+  width: 35%;
+  margin-top: 50px;
+  background-color: #eaf6ff;
+  padding: 30px;
+  border-radius: 20px;
+}
+
+.form-header-container {
   margin-top: 30px;
+}
+
+.form-header-container p {
   font-size: 30px;
+  font-weight: 300;
 }
 
 .country-container {
-  margin-top: 15px;
   display: flex;
   align-items: center;
   gap: 6px;
+  margin-top: 15px;
   color: #808080;
 }
 
@@ -70,7 +78,7 @@
   justify-content: end;
   margin-top: 20px;
   align-items: center;
-  margin-bottom: 50px;
+  /* display: none; */
 }
 
 .button-container button {
@@ -81,23 +89,22 @@
   background-color: black;
   color: white;
   cursor: pointer;
-  width: 150px;
+  width: 160px;
 }
 
 .spinner-main-container {
-  display: flex;
+  /* display: flex; */
   justify-content: end;
   margin-top: 20px;
-  margin-bottom: 50px;
   display: none;
 }
 
 .spinner-container {
   padding: 10px 15px;
   background-color: black;
-  width: 150px;
-  border-radius: 30px;
+  width: 160px;
   display: flex;
+  border-radius: 30px;
   align-content: center;
   justify-content: center;
 }
@@ -129,12 +136,8 @@
   }
 }
 
-.button-container button:hover {
-  background-color: grey;
-}
-
 @media (max-width: 960px) {
-  .main-container {
+  .form-container {
     width: 90%;
   }
 }
