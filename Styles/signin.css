@@ -1,0 +1,133 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Helvetica;
+}
+
+.main {
+  display: flex;
+  justify-content: center;
+}
+
+.main-container {
+  width: 30%;
+  margin-top: 40px;
+}
+
+.brand-logo-container {
+  display: flex;
+  gap: 10px;
+}
+
+.brand svg {
+  width: 50px;
+  height: 50px;
+}
+
+.form-text {
+  margin-top: 30px;
+  font-size: 30px;
+}
+
+.country-container {
+  margin-top: 15px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #808080;
+}
+
+.country-container img {
+  width: 30px;
+}
+
+.input-container {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.email-container input {
+  width: 100%;
+  padding: 15px 10px;
+  font-size: 15px;
+  border-radius: 6px;
+  border: 1px solid gray;
+}
+
+.password-container input {
+  width: 100%;
+  padding: 15px 10px;
+  font-size: 15px;
+  border-radius: 6px;
+  border: 1px solid gray;
+}
+
+.button-container {
+  display: flex;
+  justify-content: end;
+  margin-top: 20px;
+  align-items: center;
+  margin-bottom: 50px;
+}
+
+.button-container button {
+  padding: 15px 20px;
+  border: none;
+  border-radius: 30px;
+  font-size: 15px;
+  background-color: black;
+  color: white;
+  cursor: pointer;
+  width: 150px;
+}
+
+.spinner-main-container {
+  display: flex;
+  justify-content: end;
+  margin-top: 20px;
+  margin-bottom: 50px;
+  display: none;
+}
+
+.spinner-container {
+  padding: 10px 15px;
+  background-color: black;
+  width: 150px;
+  border-radius: 30px;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+}
+
+.loader {
+  width: 25px;
+  height: 25px;
+  border: 4px solid black;
+  border-bottom-color: white;
+  border-radius: 50%;
+  display: inline-block;
+  box-sizing: border-box;
+  animation: rotation 0.7s linear infinite;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.button-container button:hover {
+  background-color: grey;
+}
+
+@media (max-width: 960px) {
+  .main-container {
+    width: 90%;
+  }
+}

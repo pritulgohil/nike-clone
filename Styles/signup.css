@@ -17,8 +17,9 @@
 }
 
 .main-container {
-  width: 32%;
+  width: 30%;
   margin-top: 50px;
+  max-width: 1000px;
 }
 
 .nike-logo svg {

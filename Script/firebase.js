@@ -3,12 +3,17 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.1/firebase
 import {
   getAuth,
   createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  onAuthStateChanged,
+  signOut,
 } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js";
 
 import {
   getDatabase,
   ref,
   set,
+  child,
+  get,
 } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-database.js";
 
 const firebaseConfig = {
@@ -21,6 +26,8 @@ const firebaseConfig = {
   appId: "1:529245274724:web:2f59d78d04c939d100d571",
 };
 
+let firebaseUserFirstName;
+
 const app = initializeApp(firebaseConfig);
 
 export {
@@ -30,4 +37,10 @@ export {
   getDatabase,
   ref,
   set,
+  signInWithEmailAndPassword,
+  onAuthStateChanged,
+  firebaseUserFirstName,
+  get,
+  child,
+  signOut,
 };

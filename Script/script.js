@@ -1,3 +1,13 @@
+import {
+  getDatabase,
+  getAuth,
+  onAuthStateChanged,
+  ref,
+  get,
+  child,
+  signOut,
+} from "./firebase.js";
+
 // All the HomePage DOM Elements
 
 // Navbar, Carousels, and Footer -- Start
@@ -45,6 +55,7 @@ let tennisMobile = document.getElementById("tennis-mobile");
 let yogaMobile = document.getElementById("yoga-mobile");
 let skateboardingMobile = document.getElementById("skateboarding-mobile");
 let danceMobile = document.getElementById("dance-mobile");
+let mobileUser = document.getElementById("mobile-user");
 
 hamBurgerMenu.addEventListener("click", toggleHamBurgerMenu);
 closeButton.addEventListener("click", closeHamburger);
@@ -166,4 +177,108 @@ function footerResourceTogglerAction() {
 
 footerResourceToggler.addEventListener("click", footerResourceTogglerAction);
 
-// Navbar, Carousels, and Footer -- Start
+//Firebase -- Start
+
+let currentUserDisplay = document.getElementById("current-user");
+let joinNavbar = document.getElementById("join-navbar");
+let dividerNavbar = document.getElementById("divider-navbar");
+let signinNavbar = document.getElementById("signin-navbar");
+let userHoverState = document.getElementById("user-hover-state");
+let logoutButton = document.getElementById("logout-button");
+let signInStateDiv = document.getElementById("sign-in-state");
+let mobileSignupSection = document.getElementById("mobile-signup-section");
+let mobileUserDisplay = document.getElementById("mobile-user-display");
+
+let firebaseUserFirstName;
+
+const database = getDatabase();
+
+export function checkCurrentUser() {
+  const auth = getAuth();
+  onAuthStateChanged(auth, (user) => {
+    if (user) {
+      joinNavbar.style.display = "none";
+      dividerNavbar.style.display = "none";
+      signinNavbar.style.display = "none";
+      signInStateDiv.style.display = "flex";
+      mobileSignupSection.style.display = "none";
+      mobileUser.style.display = "flex";
+
+      const uid = user.uid;
+      updateNavUser(uid);
+    } else {
+      mobileUser.style.display = "none";
+    }
+  });
+}
+
+export function updateNavUser(uid) {
+  const dbRef = ref(getDatabase());
+  get(child(dbRef, `users/${uid}`))
+    .then((snapshot) => {
+      if (snapshot.exists()) {
+        firebaseUserFirstName = snapshot.val().firstName;
+        currentUserDisplay.innerHTML = `Hi, ${firebaseUserFirstName}`;
+        mobileUserDisplay.innerHTML = `Hi, ${firebaseUserFirstName}`;
+      } else {
+        console.log("No data available");
+      }
+    })
+    .catch((error) => {
+      console.error(error);
+    });
+}
+
+checkCurrentUser();
+//Firebase -- End
+
+currentUserDisplay.addEventListener("mouseenter", function () {
+  userHoverState.classList.add("show-user-menu");
+});
+
+userHoverState.addEventListener("mouseleave", function () {
+  userHoverState.classList.remove("show-user-menu");
+});
+
+function signOutUser() {
+  const auth = getAuth();
+  signOut(auth)
+    .then(() => {
+      // Sign-out successful.
+      signInStateDiv.style.display = "none";
+      console.log("Signout Successful");
+      location.reload();
+    })
+    .catch((error) => {
+      // An error happened.
+      console.log("Failure");
+    });
+}
+
+let hamburgerDivContainer = document.getElementById("hamburger-div-container");
+let userDivContainer = document.getElementById("user-div-container");
+let backUserDiv = document.getElementById("back-user-div");
+let mobileLogout = document.getElementById("mobile-logout");
+
+mobileUser.addEventListener("click", function () {
+  hamburgerDivContainer.classList.toggle("hide");
+  userDivContainer.classList.toggle("show");
+});
+
+backUserDiv.addEventListener("click", function () {
+  setTimeout(function () {
+    hamburgerDivContainer.classList.toggle("hide");
+  }, 150);
+  userDivContainer.classList.toggle("show");
+});
+
+logoutButton.addEventListener("click", function () {
+  logoutButton.textContent = "Logging Out...";
+  this.disabled = true;
+  setTimeout(signOutUser, 3000);
+});
+
+mobileLogout.addEventListener("click", function () {
+  mobileLogout.textContent = "Logging Out";
+  setTimeout(signOutUser, 3000);
+});

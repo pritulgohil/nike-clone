@@ -25,6 +25,7 @@ html {
 .mini-menu {
   background-color: #f5f5f5;
   padding: 4px 50px;
+  z-index: 1000;
 }
 
 .sub-brand-logos {
@@ -41,6 +42,7 @@ html {
 .mini-menu-links {
   display: flex;
   gap: 10px;
+  align-items: center;
 }
 
 .mini-menu-links a {
@@ -120,8 +122,35 @@ html {
   -webkit-box-shadow: -2px 0px 20px -10px rgba(171, 171, 171, 1);
   -moz-box-shadow: -2px 0px 20px -10px rgba(171, 171, 171, 1);
   box-shadow: -2px 0px 20px -10px rgba(171, 171, 171, 1);
-  overflow: auto;
+  /* overflow: auto; */
   z-index: 1;
+  overflow-x: hidden;
+}
+
+.hamburger-div-container {
+  display: block;
+  position: absolute;
+  width: 100%;
+}
+
+.hamburger-div-container.hide {
+  display: none;
+}
+
+.user-div-container {
+  position: absolute;
+  right: -100%;
+  width: 100%;
+  transition: right 0.2s;
+
+  /* display: none; */
+}
+
+.user-div-container.show {
+  right: 0;
+  transition: right 0.2s;
+
+  display: block;
 }
 
 .nike-member-buttons a {
@@ -137,6 +166,44 @@ html {
   padding: 30px;
   display: flex;
   flex-direction: row-reverse;
+}
+
+.user-close-button {
+  padding: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.user-menu-container {
+  padding: 30px;
+}
+
+.user-menu-header p {
+  font-size: 25px;
+}
+
+.user-menu-list {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  color: gray;
+}
+
+.user-menu-list p {
+  cursor: pointer;
+}
+
+.left-user-div-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.left-user-div-container p {
+  font-size: 20px;
 }
 
 .bottom-padding {
@@ -355,6 +422,75 @@ html {
 
 .nds-summary-control {
   display: none;
+}
+
+.sign-in-state {
+  display: none;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.user-hover-state {
+  position: absolute;
+  top: 35px;
+  right: 50px;
+  width: 230px;
+  z-index: 1;
+  background-color: white;
+  transition: opacity 0.2s;
+  opacity: 0;
+  padding: 20px;
+  border-radius: 8px;
+  -webkit-box-shadow: 0px 4px 10px -4px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 4px 10px -4px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 4px 10px -4px rgba(0, 0, 0, 0.75);
+}
+
+.user-hover-state.show-user-menu {
+  top: 35px;
+  opacity: 1;
+}
+
+.user-state-hover-header {
+  font-weight: 700;
+}
+
+.user-state-hover-list {
+  font-size: 13px;
+}
+
+.user-state-hover-list-container {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.user-state-hover-list-container p {
+  cursor: pointer;
+  color: gray;
+}
+
+.user-state-hover-list-container p:hover {
+  color: black;
+}
+
+.mobile-user {
+  align-items: center;
+  margin-bottom: 30px;
+  cursor: pointer;
+}
+
+.user-left-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.user-left-container svg {
+  width: 40px;
+  height: 40px;
 }
 
 @media (max-width: 960px) {
