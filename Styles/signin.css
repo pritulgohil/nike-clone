@@ -113,6 +113,13 @@
   animation: rotation 0.7s linear infinite;
 }
 
+.error {
+  font-size: 15px;
+  margin-top: 10px;
+  color: red;
+  display: none;
+}
+
 @keyframes rotation {
   0% {
     transform: rotate(0deg);
