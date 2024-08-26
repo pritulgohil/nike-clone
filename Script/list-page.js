@@ -77,97 +77,97 @@ function closeHamburger() {
 function handleResize() {
   if (window.matchMedia("(min-width: 960px)").matches) {
     hamBurgerDiv.style.display = "none";
-    mainBody.style.opacity = "1";
-    airMaxMobile.src = "Assets/air-max.jpg";
-    airForceMobile.src = "Assets/air-force.jpg";
-    dunkMobile.src = "Assets/dunk.jpg";
-    y2kMobile.src = "Assets/y2k.jpg";
-    airJordan.src = "Assets/air-jordan.jpg";
-    pegasus.src = "Assets/pegasus.jpg";
-    metcon.src = "Assets/metcon.jpg";
-    mercurial.src = "Assets/mercurial.jpg";
-    runningSport.src = "Assets/running.jpg";
-    footballSport.src = "Assets/football.jpg";
-    basketballSport.src = "Assets/basketball.jpg";
-    trainingAndGym.src = "Assets/training-and-gym.jpg";
-    tennisMobile.src = "Assets/tennis.jpg";
-    yogaMobile.src = "Assets/yoga.jpg";
-    skateboardingMobile.src = "Assets/skateboarding.jpg";
-    danceMobile.src = "Assets/dance.jpg";
+    // mainBody.style.opacity = "1";
+    // airMaxMobile.src = "Assets/air-max.jpg";
+    // airForceMobile.src = "Assets/air-force.jpg";
+    // dunkMobile.src = "Assets/dunk.jpg";
+    // y2kMobile.src = "Assets/y2k.jpg";
+    // airJordan.src = "Assets/air-jordan.jpg";
+    // pegasus.src = "Assets/pegasus.jpg";
+    // metcon.src = "Assets/metcon.jpg";
+    // mercurial.src = "Assets/mercurial.jpg";
+    // runningSport.src = "Assets/running.jpg";
+    // footballSport.src = "Assets/football.jpg";
+    // basketballSport.src = "Assets/basketball.jpg";
+    // trainingAndGym.src = "Assets/training-and-gym.jpg";
+    // tennisMobile.src = "Assets/tennis.jpg";
+    // yogaMobile.src = "Assets/yoga.jpg";
+    // skateboardingMobile.src = "Assets/skateboarding.jpg";
+    // danceMobile.src = "Assets/dance.jpg";
   } else {
     hamBurgerDiv.style.display = "block";
-    airMaxMobile.src = "Assets/air-max-mobile.jpg";
-    airForceMobile.src = "Assets/air-force-mobile.jpg";
-    dunkMobile.src = "Assets/dunk-mobile.jpg";
-    y2kMobile.src = "Assets/y2k-mobile.jpg";
-    airJordan.src = "Assets/air-jordan-mobile.jpg";
-    pegasus.src = "Assets/pegasus-mobile.png";
-    metcon.src = "Assets/metcon-mobile.jpg";
-    mercurial.src = "Assets/mercurial-mobile.jpg";
-    runningSport.src = "Assets/running-mobile.jpg";
-    footballSport.src = "Assets/football-mobile.jpg";
-    basketballSport.src = "Assets/basketball-mobile.jpg";
-    trainingAndGym.src = "Assets/training-and-gym-mobile.jpg";
-    tennisMobile.src = "Assets/tennis-mobile.jpg";
-    yogaMobile.src = "Assets/yoga-mobile.jpg";
-    skateboardingMobile.src = "Assets/skateboarding-mobile.jpg";
-    danceMobile.src = "Assets/dance-mobile.jpg";
+    // airMaxMobile.src = "Assets/air-max-mobile.jpg";
+    // airForceMobile.src = "Assets/air-force-mobile.jpg";
+    // dunkMobile.src = "Assets/dunk-mobile.jpg";
+    // y2kMobile.src = "Assets/y2k-mobile.jpg";
+    // airJordan.src = "Assets/air-jordan-mobile.jpg";
+    // pegasus.src = "Assets/pegasus-mobile.png";
+    // metcon.src = "Assets/metcon-mobile.jpg";
+    // mercurial.src = "Assets/mercurial-mobile.jpg";
+    // runningSport.src = "Assets/running-mobile.jpg";
+    // footballSport.src = "Assets/football-mobile.jpg";
+    // basketballSport.src = "Assets/basketball-mobile.jpg";
+    // trainingAndGym.src = "Assets/training-and-gym-mobile.jpg";
+    // tennisMobile.src = "Assets/tennis-mobile.jpg";
+    // yogaMobile.src = "Assets/yoga-mobile.jpg";
+    // skateboardingMobile.src = "Assets/skateboarding-mobile.jpg";
+    // danceMobile.src = "Assets/dance-mobile.jpg";
   }
 }
 
 window.addEventListener("load", handleResize);
 window.addEventListener("resize", handleResize);
 
-function rightScrollLatestSection() {
-  latestGreatestContainer.scrollBy({
-    left: 300,
-    behavior: "smooth",
-  });
-}
+// function rightScrollLatestSection() {
+//   latestGreatestContainer.scrollBy({
+//     left: 300,
+//     behavior: "smooth",
+//   });
+// }
 
-function leftScrollLatestSection() {
-  latestGreatestContainer.scrollBy({
-    left: -300,
-    behavior: "smooth",
-  });
-}
+// function leftScrollLatestSection() {
+//   latestGreatestContainer.scrollBy({
+//     left: -300,
+//     behavior: "smooth",
+//   });
+// }
 
-rightNavigation.addEventListener("click", rightScrollLatestSection);
-leftNavigation.addEventListener("click", leftScrollLatestSection);
+// rightNavigation.addEventListener("click", rightScrollLatestSection);
+// leftNavigation.addEventListener("click", leftScrollLatestSection);
 
-function rightScrollShopIcons() {
-  shopOurIconsContainer.scrollBy({
-    left: 300,
-    behavior: "smooth",
-  });
-}
+// function rightScrollShopIcons() {
+//   shopOurIconsContainer.scrollBy({
+//     left: 300,
+//     behavior: "smooth",
+//   });
+// }
 
-function leftScrollShopIcons() {
-  shopOurIconsContainer.scrollBy({
-    left: -300,
-    behavior: "smooth",
-  });
-}
+// function leftScrollShopIcons() {
+//   shopOurIconsContainer.scrollBy({
+//     left: -300,
+//     behavior: "smooth",
+//   });
+// }
 
-function rightSportNavigatorAction() {
-  shopBySportNavigator.scrollBy({
-    left: 300,
-    behavior: "smooth",
-  });
-}
+// function rightSportNavigatorAction() {
+//   shopBySportNavigator.scrollBy({
+//     left: 300,
+//     behavior: "smooth",
+//   });
+// }
 
-function leftSportNavigatorAction() {
-  shopBySportNavigator.scrollBy({
-    left: -300,
-    behavior: "smooth",
-  });
-}
+// function leftSportNavigatorAction() {
+//   shopBySportNavigator.scrollBy({
+//     left: -300,
+//     behavior: "smooth",
+//   });
+// }
 
-leftSportNavigator.addEventListener("click", leftSportNavigatorAction);
-rightSportNavigator.addEventListener("click", rightSportNavigatorAction);
+// leftSportNavigator.addEventListener("click", leftSportNavigatorAction);
+// rightSportNavigator.addEventListener("click", rightSportNavigatorAction);
 
-rightNavigateIcon.addEventListener("click", rightScrollShopIcons);
-leftNavigateIcon.addEventListener("click", leftScrollShopIcons);
+// rightNavigateIcon.addEventListener("click", rightScrollShopIcons);
+// leftNavigateIcon.addEventListener("click", leftScrollShopIcons);
 
 function footerResourceTogglerAction() {
   footerResourceList.classList.toggle("show");
@@ -175,7 +175,7 @@ function footerResourceTogglerAction() {
   console.log("Hello");
 }
 
-footerResourceToggler.addEventListener("click", footerResourceTogglerAction);
+// footerResourceToggler.addEventListener("click", footerResourceTogglerAction);
 
 //Firebase -- Start
 
@@ -203,6 +203,7 @@ export function checkCurrentUser() {
       signInStateDiv.style.display = "flex";
       mobileSignupSection.style.display = "none";
       mobileUser.style.display = "flex";
+      console.log("Yes");
 
       const uid = user.uid;
       console.log(uid);

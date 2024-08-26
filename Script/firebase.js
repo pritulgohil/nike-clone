@@ -10,11 +10,19 @@ import {
 
 import {
   getDatabase,
-  ref,
   set,
   child,
   get,
+  ref as dbRef, // Alias for database reference
+  push,
 } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-database.js";
+
+import {
+  getStorage,
+  uploadBytes,
+  getDownloadURL,
+  ref as storageRef, // Alias for storage reference
+} from "https://www.gstatic.com/firebasejs/9.6.1/firebase-storage.js";
 
 const firebaseConfig = {
   apiKey: "AIzaSyBIZIQf24eqO3wrEjOoU5xC6Pw3sSNSfqQ",
@@ -35,7 +43,6 @@ export {
   getAuth,
   createUserWithEmailAndPassword,
   getDatabase,
-  ref,
   set,
   signInWithEmailAndPassword,
   onAuthStateChanged,
@@ -43,4 +50,10 @@ export {
   get,
   child,
   signOut,
+  getStorage,
+  uploadBytes,
+  getDownloadURL,
+  storageRef,
+  dbRef,
+  push,
 };

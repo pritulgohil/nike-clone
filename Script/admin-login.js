@@ -19,7 +19,7 @@ function signIn() {
       buttonContainer.style.display = "none";
       spinnerContainer.style.display = "flex";
       setTimeout(function () {
-        window.location = "admin-console.html";
+        window.location = "admin-dashboard.html";
       }, 3000);
     })
     .catch((error) => {

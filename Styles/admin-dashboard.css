@@ -1,0 +1,416 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Helvetica;
+  letter-spacing: 0.4px;
+  max-width: 100%;
+}
+
+/* body {
+  height: 2000px;
+} */
+
+.navbar {
+  background-color: #eaf6ff;
+  -webkit-box-shadow: 0px 0px 10px -4px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 0px 10px -4px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 0px 10px -4px rgba(0, 0, 0, 0.75);
+}
+
+.navbar-container {
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.left-side {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.right-side {
+  margin-right: 30px;
+  cursor: pointer;
+}
+
+.right-side p {
+  cursor: pointer;
+}
+
+.page-header h1 {
+  font-weight: 100;
+}
+
+.brand-logo {
+  display: flex;
+}
+
+.logo-container svg {
+  width: 60px;
+  height: 60px;
+}
+
+.tab-container {
+  display: flex;
+}
+
+.tab1 {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  background-color: #2e5266;
+  padding: 20px;
+  color: white;
+  transition: background-color 0.2s;
+}
+
+.tab2 {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+  background-color: #e2c044;
+  transition: background-color 0.2s;
+}
+
+.tab3 {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+  background-color: #e2c044;
+  transition: background-color 0.5s;
+}
+
+/* .tab1:hover,
+.tab2:hover,
+.tab3:hover {
+  background-color: #b49939;
+  color: white;
+} */
+
+.tab1 p,
+.tab2 p,
+.tab3 p {
+  cursor: pointer;
+}
+
+.home-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.section-header {
+  margin-top: 100px;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  width: 100%;
+}
+
+.section-header h1 {
+  font-weight: 200;
+  font-size: 40px;
+}
+
+.inventory-container {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+}
+
+.incoming-orders {
+  display: none;
+}
+
+.category-container {
+  margin-top: 50px;
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.category-header h2 {
+  font-weight: 400;
+}
+
+.category-container {
+  width: 100%;
+}
+
+.category-header {
+  margin-bottom: 20px;
+  width: 90%;
+}
+
+.category-cards {
+  display: flex;
+  gap: 40px;
+  width: 90%;
+  flex-wrap: wrap;
+}
+
+.cards {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #3c896d;
+  font-size: 20px;
+  height: 200px;
+  width: 300px;
+  border-radius: 20px;
+  cursor: pointer;
+  color: white;
+  scroll-snap-align: start;
+}
+
+.shop-our-icons-cards {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #313638;
+  font-size: 20px;
+  height: 200px;
+  width: 300px;
+  border-radius: 20px;
+  cursor: pointer;
+  scroll-snap-align: start;
+  color: white;
+}
+
+.category-cards::-webkit-scrollbar {
+  display: none;
+}
+
+.category-cards {
+  scrollbar-width: none;
+}
+
+.shop-our-icons-style {
+  background-color: #c6ca53;
+}
+
+.card-hover {
+  transition: scale 0.3s;
+}
+
+.card-hover:hover {
+  scale: 1.05;
+}
+
+.card-section-hide {
+  display: none;
+}
+
+.shoe-input-form {
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  border-radius: 20px;
+  gap: 50px;
+}
+
+.form-left-side {
+  width: 100%;
+  padding: 50px;
+  border: 1px solid black;
+  border-radius: 20px;
+}
+
+.form-left-side p {
+  font-size: 20px;
+}
+
+.form-right-side {
+  width: 100%;
+  padding: 50px;
+  border: 1px solid black;
+  border-radius: 20px;
+  /* display: none; */
+}
+
+.form-left-side input[type="text"] {
+  width: 100%;
+  padding: 13px;
+  border-radius: 4px;
+}
+
+.form-left-side input[type="number"] {
+  width: 100%;
+  padding: 13px;
+  border-radius: 4px;
+}
+
+.form-left-side select {
+  width: 100%;
+  padding: 13px;
+  border-radius: 4px;
+  margin-top: 10px;
+}
+
+.form-left-side input {
+  margin-top: 10px;
+  border: none;
+  border: 1px solid;
+}
+
+.form-margin-top {
+  margin-top: 40px;
+}
+
+.form-left-side input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+}
+
+.product-size-section-container {
+  display: flex;
+  gap: 50px;
+}
+
+.section-header p {
+  font-size: 20px;
+}
+
+.image-gallery-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+}
+
+.add-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+}
+
+.add-button button {
+  padding: 15px 10px;
+  width: 100%;
+  font-size: 15px;
+  background-color: #313638;
+  color: white;
+  border: 1px solid;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.add-button label {
+  width: 25%;
+}
+
+.image-status {
+  display: none;
+}
+
+.image-showcase {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.image-showcase img {
+  width: 200px;
+  border-radius: 10px;
+}
+
+.submit-details-button {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.submit-details-button button {
+  width: 100%;
+  padding: 15px 10px;
+  border: none;
+  background-color: #313638;
+  font-size: 15px;
+  font-weight: 500;
+  border-radius: 4px;
+  color: white;
+  cursor: pointer;
+}
+
+.publish-container {
+  display: flex;
+  gap: 20px;
+}
+
+.publish-container button {
+  padding: 20px 10px;
+  width: 100%;
+  cursor: pointer;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  font-size: 15px;
+}
+
+.start-over {
+  background-color: rgb(209, 0, 0);
+}
+
+.publish-product {
+  background-color: #3c896d;
+}
+
+/* Hide the default file input */
+#fileInput {
+  display: none;
+}
+
+/* Style the custom button */
+.custom-file-input + label {
+  display: inline-block;
+  padding: 10px 20px;
+  color: white;
+  background-color: #007bff;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  text-align: center;
+  transition: background-color 0.3s ease;
+}
+
+.custom-file-input + label:hover {
+  background-color: #0056b3;
+}
+
+/* Optional: Add focus style */
+.custom-file-input + label:focus {
+  outline: 2px solid #0056b3;
+  outline-offset: 2px;
+}
+
+.image-upload-container {
+  display: none;
+}
+
+.publish-container {
+  display: none;
+}
+
+@media (max-width: 960px) {
+  .logo-container svg {
+    width: 40px;
+    height: 40px;
+  }
+
+  .page-header h1 {
+    font-size: 25px;
+  }
+
+  .right-side {
+    margin-right: 10px;
+  }
+}
