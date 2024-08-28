@@ -287,3 +287,101 @@ mobileLogout.addEventListener("click", function () {
   mobileLogout.textContent = "Logging Out";
   setTimeout(signOutUser, 3000);
 });
+
+// Script Start
+
+let filterOption = document.getElementById("filter-option");
+let leftSideContainer = document.getElementById("left-side");
+let filterLabel = document.getElementById("filter-label");
+let sectionNavbar = document.getElementById("section-navbar");
+let listHeader = document.getElementById("list-header");
+let pagePath = document.getElementById("page-path");
+let rightSideContainer = document.getElementById("right-side");
+
+filterOption.addEventListener("click", function () {
+  if (leftSideContainer.style.display === "none") {
+    filterLabel.textContent = "Hide Filters";
+    leftSideContainer.style.display = "block";
+
+    if (window.scrollY > 168) {
+      rightSideContainer.style.marginLeft = "270px";
+    }
+  } else {
+    leftSideContainer.style.display = "none";
+    filterLabel.textContent = "Show Filters";
+    if (window.scrollY > 168) {
+      rightSideContainer.style.marginLeft = "unset";
+    }
+  }
+});
+
+window.addEventListener("scroll", function () {
+  const scrollPosition = window.scrollY;
+  if (scrollPosition > 168) {
+    sectionNavbar.style.position = "fixed";
+    sectionNavbar.style.top = "0";
+    sectionNavbar.style.backgroundColor = "white";
+    sectionNavbar.style.width = "100%";
+    sectionNavbar.style.paddingRight = "88px";
+    sectionNavbar.style.boxShadow =
+      "rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px";
+    sectionNavbar.style.marginLeft = "-44px";
+    sectionNavbar.style.padding = "10px 44px 10px 44px";
+    listHeader.style.fontSize = "15px";
+    listHeader.style.transition = "font-size 0.2s";
+    listHeader.style.fontWeight = "500";
+    pagePath.style.fontSize = "12px";
+    pagePath.style.transition = "font-size 0.2s";
+    pagePath.style.fontWeight = "300";
+    leftSideContainer.style.position = "fixed";
+    leftSideContainer.style.top = "80px";
+    leftSideContainer.style.paddingRight = "100px";
+    rightSideContainer.style.marginLeft = "270px";
+  } else {
+    sectionNavbar.style.position = "unset";
+    sectionNavbar.style.top = "unset";
+    sectionNavbar.style.backgroundColor = "unset";
+    sectionNavbar.style.display = "flex";
+    sectionNavbar.style.justifyContent = "space-between";
+    sectionNavbar.style.alignItems = "center";
+    sectionNavbar.style.padding = "10px 0px";
+    listHeader.style.fontSize = "1.5em";
+    listHeader.style.fontWeight = "unset";
+    pagePath.style.fontSize = "unset";
+    leftSideContainer.style.position = "unset";
+    leftSideContainer.style.top = "unset";
+    rightSideContainer.style.marginLeft = "unset";
+    sectionNavbar.style.padding = "10px 0px";
+    sectionNavbar.style.marginLeft = "unset";
+    sectionNavbar.style.boxShadow = "unset";
+    pagePath.style.fontWeight = "unset";
+    leftSideContainer.style.paddingRight = "50px";
+  }
+
+  if (filterLabel.textContent === "Show Filters") {
+    rightSideContainer.style.marginLeft = "unset";
+  }
+});
+
+if (window.scrollY > 168 && filterLabel.textContent === "Show Filters") {
+  rightSideContainer.style.marginLeft = "unset";
+  console.log("Javascript");
+}
+
+const databaseRef = dbRef(getDatabase());
+get(child(databaseRef, `Inventory/Categories/Shop-Our-Icons/Air-Force-1`))
+  .then((snapshot) => {
+    if (snapshot.exists()) {
+      snapshot.forEach((childSnapshot) => {
+        const childData = childSnapshot.val();
+        console.log(childData.productDetails.images.image1.url);
+      });
+    } else {
+      console.log("No data available");
+    }
+  })
+  .catch((error) => {
+    console.error(error);
+  });
+
+// Script End
