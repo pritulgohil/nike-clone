@@ -25,7 +25,11 @@ let Tab2 = document.getElementById("tab2");
 let Tab3 = document.getElementById("tab3");
 let logoutButton = document.getElementById("logout-button");
 let shopOurIconContainer = document.getElementById("shop-our-icons-container");
+let latestAndGreatestContainer = document.getElementById(
+  "latest-and-greatest-container"
+);
 let showShopOurIcon = document.getElementById("show-shop-our-icon");
+let showLatestAndGreatest = document.getElementById("show-latest-and-greatest");
 let mainCategoryContainer = document.getElementById("main-category-container");
 let shoeLaunchForm = document.getElementById("show-launch-form");
 let shoeLaunchHeader = document.getElementById("shoe-launch-header");
@@ -113,12 +117,22 @@ function readMainCategories() {
               </div>`;
         });
         let shopOurIcons = document.getElementById("Shop-Our-Icons");
+        let latestAndGreatest = document.getElementById("Latest-And-Greatest");
         shopOurIcons.addEventListener("click", function () {
           console.log("Latest Clicked");
           showShopOurIcon.style.display = "flex";
           readShopOurIcon();
           document.body.style.height = "2000px";
           showShopOurIcon.scrollIntoView({
+            behavior: "smooth",
+          });
+        });
+        latestAndGreatest.addEventListener("click", function () {
+          console.log("Latest and Greatest Clicked");
+          showLatestAndGreatest.style.display = "flex";
+          readLatestAndGreatest();
+          document.body.style.height = "2000px";
+          showLatestAndGreatest.scrollIntoView({
             behavior: "smooth",
           });
         });
@@ -157,6 +171,42 @@ function readShopOurIcon() {
           currentCategory = "Shop Our Icons";
           // currentSubCategory = airForce1Form.textContent.replace(/\s+/g, "-");
           currentSubCategory = "Air Force 1";
+          shoeLaunchForm.style.display = "flex";
+          document.body.style.height = "3000px";
+          shoeLaunchForm.scrollIntoView({
+            behavior: "smooth",
+          });
+        });
+      } else {
+        console.log("No Data Available");
+      }
+    })
+    .catch((error) => {
+      console.error("Error fetching data:", error);
+    });
+}
+
+function readLatestAndGreatest() {
+  const db = getDatabase();
+  const dbReference = dbRef(db, "Inventory/Categories/Latest-And-Greatest");
+
+  get(dbReference)
+    .then((snapshot) => {
+      if (snapshot.exists()) {
+        snapshot.forEach((childSnapshot) => {
+          const idWithHyphensIcon = childSnapshot.key.replace(/\s+/g, "-");
+          const keyWithSpaces = childSnapshot.key.replace(/-/g, " ");
+          latestAndGreatestContainer.innerHTML += `<div id=${idWithHyphensIcon} class="shop-our-icons-cards card-hover">
+                <p>${keyWithSpaces}</p>
+              </div>`;
+        });
+        let getSetForSchool = document.getElementById("Get-Set-For-School");
+        getSetForSchool.addEventListener("click", function () {
+          console.log("Get Set For School Clicked");
+          shoeLaunchHeader.textContent = `Drop New ${getSetForSchool.textContent} Products`;
+          currentCategory = "Latest And Greatest";
+          // currentSubCategory = airForce1Form.textContent.replace(/\s+/g, "-");
+          currentSubCategory = "Get Set For School";
           shoeLaunchForm.style.display = "flex";
           document.body.style.height = "3000px";
           shoeLaunchForm.scrollIntoView({
@@ -227,6 +277,19 @@ function fetchProductDetails() {
         productDetails,
       }
     );
+  } else if (
+    currentCategory === "Latest And Greatest" &&
+    currentSubCategory === "Get Set For School"
+  ) {
+    set(
+      dbRef(
+        db,
+        `Inventory/Categories/Latest-And-Greatest/Get-Set-For-School/${productTitleInput.value}`
+      ),
+      {
+        productDetails,
+      }
+    );
   }
 }
 
@@ -243,8 +306,6 @@ saveProductButton.addEventListener("click", function () {
   }, 3000);
 });
 
-// saveProductButton.addEventListener("click", fetchProductDetails);
-
 let fileInput = document.getElementById("fileInput");
 let uploadImagesButton = document.getElementById("upload-images-button");
 
@@ -256,6 +317,75 @@ uploadImagesButton.addEventListener("click", function () {
     publishButtonContainer.style.display = "block";
   }, 3000);
 });
+
+// function uploadFiles() {
+//   const files = fileInput.files; // Get the selected files
+//   console.log(files);
+
+//   if (!files.length) {
+//     console.error("No files selected!");
+//     return;
+//   }
+
+//   const storage = getStorage();
+//   const db = getDatabase();
+
+//   // Loop through each file and upload it
+//   Array.from(files).forEach((file, index) => {
+//     const fileStorageRef = storageRef(
+//       storage,
+//       `${productTitleInput.value}/${file.name}`
+//     );
+
+//     // Upload the file to Firebase Storage
+//     uploadBytes(fileStorageRef, file)
+//       .then(() => {
+//         imageStatus.style.display = "block";
+//         imageStatus.textContent = `Uploaded file ${index + 1} of ${
+//           files.length
+//         }: ${file.name}`;
+
+//         console.log(
+//           `Uploaded file ${index + 1} of ${files.length}: ${file.name}`
+//         );
+
+//         // Get the download URL of the uploaded file
+//         return getDownloadURL(fileStorageRef);
+//       })
+//       .then((downloadURL) => {
+//         console.log(`File ${index + 1} available at: ${downloadURL}`);
+//         imageShowcase.innerHTML += `<img src="${downloadURL}">`;
+//         // Now store this URL in Firebase Realtime Database
+
+//         const imagesDatabaseRef = dbRef(
+//           db,
+//           `Inventory/Categories/Shop-Our-Icons/Air-Force-1/${
+//             productTitleInput.value
+//           }/productDetails/images/image${index + 1}`
+//         );
+
+//         const image = {
+//           url: downloadURL,
+//           name: file.name,
+//           createdAt: Date.now(),
+//         };
+
+//         // Set data in the corresponding image node (image1, image2, etc.)
+//         return set(imagesDatabaseRef, image);
+//       })
+//       .then(() => {
+//         console.log(
+//           `File ${index + 1} URL stored in Realtime Database successfully.`
+//         );
+//       })
+//       .catch((error) => {
+//         console.error(
+//           `Error uploading file ${index + 1} or storing URL: `,
+//           error
+//         );
+//       });
+//   });
+// }
 
 function uploadFiles() {
   const files = fileInput.files; // Get the selected files
@@ -294,22 +424,40 @@ function uploadFiles() {
       .then((downloadURL) => {
         console.log(`File ${index + 1} available at: ${downloadURL}`);
         imageShowcase.innerHTML += `<img src="${downloadURL}">`;
-        // Now store this URL in Firebase Realtime Database
 
-        const imagesDatabaseRef = dbRef(
-          db,
-          `Inventory/Categories/Shop-Our-Icons/Air-Force-1/${
-            productTitleInput.value
-          }/productDetails/images/image${index + 1}`
-        );
+        // Determine the correct path based on the category and subcategory
+        let imagesDatabaseRef;
 
+        if (
+          currentCategory === "Shop Our Icons" &&
+          currentSubCategory === "Air Force 1"
+        ) {
+          imagesDatabaseRef = dbRef(
+            db,
+            `Inventory/Categories/Shop-Our-Icons/Air-Force-1/${
+              productTitleInput.value
+            }/productDetails/images/image${index + 1}`
+          );
+        } else if (
+          currentCategory === "Latest And Greatest" &&
+          currentSubCategory === "Get Set For School"
+        ) {
+          imagesDatabaseRef = dbRef(
+            db,
+            `Inventory/Categories/Latest-And-Greatest/Get-Set-For-School/${
+              productTitleInput.value
+            }/productDetails/images/image${index + 1}`
+          );
+        }
+
+        // Prepare image data
         const image = {
           url: downloadURL,
           name: file.name,
           createdAt: Date.now(),
         };
 
-        // Set data in the corresponding image node (image1, image2, etc.)
+        // Set data in the corresponding image node
         return set(imagesDatabaseRef, image);
       })
       .then(() => {

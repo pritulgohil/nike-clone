@@ -56,6 +56,9 @@ let yogaMobile = document.getElementById("yoga-mobile");
 let skateboardingMobile = document.getElementById("skateboarding-mobile");
 let danceMobile = document.getElementById("dance-mobile");
 let mobileUser = document.getElementById("mobile-user");
+let airForce1List = document.getElementById("air-force-1-list");
+let getSetForSchoolCard = document.getElementById("get-set-for-school-card");
+let pathForListPage;
 
 hamBurgerMenu.addEventListener("click", toggleHamBurgerMenu);
 closeButton.addEventListener("click", closeHamburger);
@@ -285,4 +288,38 @@ logoutButton.addEventListener("click", function () {
 mobileLogout.addEventListener("click", function () {
   mobileLogout.textContent = "Logging Out";
   setTimeout(signOutUser, 3000);
+});
+
+airForce1List.addEventListener("click", function () {
+  const pathForListPage = "Shop-Our-Icons/Air-Force-1";
+  const categoryName = "Category";
+  const subCategoryName = "Shop Our Icons";
+  const listName = "Air Force 1";
+
+  // Construct the URL with all the query parameters
+  const url = `list-page.html?path=${encodeURIComponent(
+    pathForListPage
+  )}&category=${encodeURIComponent(categoryName)}&other=${encodeURIComponent(
+    subCategoryName
+  )}&listName=${encodeURIComponent(listName)}`;
+
+  console.log("Navigating to:", url); // Debugging log
+  window.location.href = url;
+});
+
+getSetForSchoolCard.addEventListener("click", function () {
+  const pathForListPage = "Latest-And-Greatest/Get-Set-For-School";
+  const categoryName = "Category";
+  const subCategoryName = "Latest and Greatest";
+  const listName = "Back to School";
+
+  // Construct the URL with all the query parameters
+  const url = `list-page.html?path=${encodeURIComponent(
+    pathForListPage
+  )}&category=${encodeURIComponent(categoryName)}&other=${encodeURIComponent(
+    subCategoryName
+  )}&listName=${encodeURIComponent(listName)}`;
+
+  console.log("Navigating to:", url); // Debugging log
+  window.location.href = url;
 });

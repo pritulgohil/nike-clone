@@ -15,6 +15,7 @@ import {
   get,
   ref as dbRef, // Alias for database reference
   push,
+  onValue,
 } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-database.js";
 
 import {
@@ -56,4 +57,5 @@ export {
   storageRef,
   dbRef,
   push,
+  onValue,
 };

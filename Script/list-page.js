@@ -6,6 +6,7 @@ import {
   get,
   child,
   signOut,
+  onValue,
 } from "./firebase.js";
 
 // All the HomePage DOM Elements
@@ -56,6 +57,8 @@ let yogaMobile = document.getElementById("yoga-mobile");
 let skateboardingMobile = document.getElementById("skateboarding-mobile");
 let danceMobile = document.getElementById("dance-mobile");
 let mobileUser = document.getElementById("mobile-user");
+let listCategoryLabel = document.getElementById("list-category-label");
+let totalNodes;
 
 hamBurgerMenu.addEventListener("click", toggleHamBurgerMenu);
 closeButton.addEventListener("click", closeHamburger);
@@ -188,8 +191,30 @@ let logoutButton = document.getElementById("logout-button");
 let signInStateDiv = document.getElementById("sign-in-state");
 let mobileSignupSection = document.getElementById("mobile-signup-section");
 let mobileUserDisplay = document.getElementById("mobile-user-display");
+let listSubCategoryLabel = document.getElementById("list-subcategory-label");
+let listHeader = document.getElementById("list-header");
 
 let firebaseUserFirstName;
+
+// Get the URL search parameters
+// Get the URL search parameters
+const urlParams = new URLSearchParams(window.location.search);
+
+// Retrieve the variables
+const pathForListPage = urlParams.get("path");
+const categoryName = urlParams.get("category");
+const someOtherVariable = urlParams.get("other");
+let listName = urlParams.get("listName");
+
+if (pathForListPage && categoryName && someOtherVariable && listName) {
+  console.log(`Path: ${pathForListPage}`);
+  console.log(`Category: ${categoryName}`);
+  console.log(`Other Variable: ${someOtherVariable}`);
+  console.log(`List Name: ${listName}`);
+  listCategoryLabel.textContent = categoryName;
+  listSubCategoryLabel.textContent = someOtherVariable;
+  // Use these variables as needed
+}
 
 const database = getDatabase();
 
@@ -294,9 +319,9 @@ let filterOption = document.getElementById("filter-option");
 let leftSideContainer = document.getElementById("left-side");
 let filterLabel = document.getElementById("filter-label");
 let sectionNavbar = document.getElementById("section-navbar");
-let listHeader = document.getElementById("list-header");
 let pagePath = document.getElementById("page-path");
 let rightSideContainer = document.getElementById("right-side");
+let listContainer = document.getElementById("list-container");
 
 filterOption.addEventListener("click", function () {
   if (leftSideContainer.style.display === "none") {
@@ -368,20 +393,103 @@ if (window.scrollY > 168 && filterLabel.textContent === "Show Filters") {
   console.log("Javascript");
 }
 
+// const databaseRef = dbRef(getDatabase());
+// const inventoryRef = child(
+//   databaseRef,
+//   `Inventory/Categories/${pathForListPage}`
+// );
+
+// // Set up a real-time listener
+// onValue(
+//   inventoryRef,
+//   (snapshot) => {
+//     // Clear the existing list container to prevent duplicates
+//     listContainer.innerHTML = "";
+
+//     if (snapshot.exists()) {
+//       snapshot.forEach((childSnapshot) => {
+//         const childData = childSnapshot.val();
+//         console.log(childData.productDetails.productPrice);
+//         listContainer.innerHTML += `<div class="list-card">
+//         <div class="image-container">
+//           <img
+//             src="${childData.productDetails.images.image1.url}"
+//             alt=""
+//           />
+//         </div>
+//         <div class="list-details">
+//           <p class="best-seller-label bestseller" style="display: ${
+//             childData.productDetails.bestSellerStaus ? "block" : "none"
+//           };">Bestseller</p>
+//           <h2 class="list-header">${childData.productDetails.productName}</h2>
+//           <p class="gender-label">${
+//             childData.productDetails.productGender === "Female"
+//               ? "Women"
+//               : "Men"
+//           }</p>
+//           <p class="price">$${childData.productDetails.productPrice}</p>
+//         </div>
+//       </div>`;
+//       });
+//     } else {
+//       console.log("No data available");
+//     }
+//   },
+//   (error) => {
+//     console.error(error);
+//   }
+// );
+
 const databaseRef = dbRef(getDatabase());
-get(child(databaseRef, `Inventory/Categories/Shop-Our-Icons/Air-Force-1`))
-  .then((snapshot) => {
+const inventoryRef = child(
+  databaseRef,
+  `Inventory/Categories/${pathForListPage}`
+);
+
+// Set up a real-time listener
+onValue(
+  inventoryRef,
+  (snapshot) => {
+    // Clear the existing list container to prevent duplicates
+    listContainer.innerHTML = "";
+
     if (snapshot.exists()) {
+      // Get the total number of nodes (children)
+      totalNodes = snapshot.size;
+      console.log(`Total number of nodes: ${totalNodes}`);
+      listHeader.textContent = `${listName} (${totalNodes})`;
+
       snapshot.forEach((childSnapshot) => {
         const childData = childSnapshot.val();
-        console.log(childData.productDetails.images.image1.url);
+        console.log(childData.productDetails.productPrice);
+        listContainer.innerHTML += `<div class="list-card">
+        <div class="image-container">
+          <img
+            src="${childData.productDetails.images.image1.url}"
+            alt=""
+          />
+        </div>
+        <div class="list-details">
+          <p class="best-seller-label bestseller" style="display: ${
+            childData.productDetails.bestSellerStaus ? "block" : "none"
+          };">Bestseller</p>
+          <h2 class="list-header">${childData.productDetails.productName}</h2>
+          <p class="gender-label">${
+            childData.productDetails.productGender === "Female"
+              ? "Women"
+              : "Men"
+          }</p>
+          <p class="price">$${childData.productDetails.productPrice}</p>
+        </div>
+      </div>`;
       });
     } else {
       console.log("No data available");
     }
-  })
-  .catch((error) => {
+  },
+  (error) => {
     console.error(error);
-  });
+  }
+);
 
 // Script End

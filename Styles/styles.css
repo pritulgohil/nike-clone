@@ -309,6 +309,11 @@ html {
   margin-right: 16px;
   width: 30%;
   position: relative;
+  cursor: pointer;
+}
+
+.latest-and-greatest-card a {
+  color: black;
 }
 
 .latest-and-greatest-image {
