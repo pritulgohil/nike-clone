@@ -216,6 +216,11 @@ if (pathForListPage && categoryName && someOtherVariable && listName) {
   // Use these variables as needed
 }
 
+console.log("This is", someOtherVariable);
+console.log("This is", listName);
+
+// const url = `product-detail.html?path=${encodeURIComponent}`;
+
 const database = getDatabase();
 
 export function checkCurrentUser() {
@@ -440,6 +445,58 @@ if (window.scrollY > 168 && filterLabel.textContent === "Show Filters") {
 //   }
 // );
 
+// const databaseRef = dbRef(getDatabase());
+// const inventoryRef = child(
+//   databaseRef,
+//   `Inventory/Categories/${pathForListPage}`
+// );
+
+// // Set up a real-time listener
+// onValue(
+//   inventoryRef,
+//   (snapshot) => {
+//     // Clear the existing list container to prevent duplicates
+//     listContainer.innerHTML = "";
+
+//     if (snapshot.exists()) {
+//       // Get the total number of nodes (children)
+//       totalNodes = snapshot.size;
+//       console.log(`Total number of nodes: ${totalNodes}`);
+//       listHeader.textContent = `${listName} (${totalNodes})`;
+
+//       snapshot.forEach((childSnapshot) => {
+//         const childData = childSnapshot.val();
+//         console.log(childData.productDetails.productPrice);
+//         listContainer.innerHTML += `<div class="list-card">
+//         <div class="image-container">
+//           <img
+//             src="${childData.productDetails.images.image1.url}"
+//             alt=""
+//           />
+//         </div>
+//         <div class="list-details">
+//           <p class="best-seller-label bestseller" style="display: ${
+//             childData.productDetails.bestSellerStaus ? "block" : "none"
+//           };">Bestseller</p>
+//           <h2 class="list-header">${childData.productDetails.productName}</h2>
+//           <p class="gender-label">${
+//             childData.productDetails.productGender === "Female"
+//               ? "Women"
+//               : "Men"
+//           }</p>
+//           <p class="price">$${childData.productDetails.productPrice}</p>
+//         </div>
+//       </div>`;
+//       });
+//     } else {
+//       console.log("No data available");
+//     }
+//   },
+//   (error) => {
+//     console.error(error);
+//   }
+// );
+
 const databaseRef = dbRef(getDatabase());
 const inventoryRef = child(
   databaseRef,
@@ -462,26 +519,52 @@ onValue(
       snapshot.forEach((childSnapshot) => {
         const childData = childSnapshot.val();
         console.log(childData.productDetails.productPrice);
-        listContainer.innerHTML += `<div class="list-card">
-        <div class="image-container">
-          <img
-            src="${childData.productDetails.images.image1.url}"
-            alt=""
-          />
-        </div>
-        <div class="list-details">
-          <p class="best-seller-label bestseller" style="display: ${
-            childData.productDetails.bestSellerStaus ? "block" : "none"
-          };">Bestseller</p>
-          <h2 class="list-header">${childData.productDetails.productName}</h2>
-          <p class="gender-label">${
-            childData.productDetails.productGender === "Female"
-              ? "Women"
-              : "Men"
-          }</p>
-          <p class="price">$${childData.productDetails.productPrice}</p>
-        </div>
-      </div>`;
+
+        // Create a div element for the list card
+        const listCard = document.createElement("div");
+        listCard.classList.add("list-card");
+
+        // Add the HTML content to the list card
+        listCard.innerHTML = `
+          <div class="image-container">
+            <img
+              src="${childData.productDetails.images.image1.url}"
+              alt=""
+            />
+          </div>
+          <div class="list-details">
+            <p class="best-seller-label bestseller" style="display: ${
+              childData.productDetails.bestSellerStaus ? "block" : "none"
+            };">Bestseller</p>
+            <h2 class="list-header">${childData.productDetails.productName}</h2>
+            <p class="gender-label">${
+              childData.productDetails.productGender === "Female"
+                ? "Women"
+                : "Men"
+            }</p>
+            <p class="price">$${childData.productDetails.productPrice}</p>
+          </div>
+        `;
+
+        // Attach a click event listener to the list card
+        listCard.addEventListener("click", () => {
+          console.log(childData.productDetails.productName);
+          const parameter1 = someOtherVariable.replace(/ /g, "-"); // Replace spaces with hyphens in parameter1
+          const parameter2 = listName.replace(/ /g, "-"); // Replace spaces with hyphens in parameter2
+          const parameter3 = childData.productDetails.productName;
+
+          const url = `product-detail.html?parameter1=${encodeURIComponent(
+            parameter1
+          )}&parameter2=${encodeURIComponent(
+            parameter2
+          )}&parameter3=${encodeURIComponent(parameter3)}`;
+
+          console.log(url); // This will output the URL with the query parameters
+          window.location.href = url;
+        });
+
+        // Append the list card to the container
+        listContainer.appendChild(listCard);
       });
     } else {
       console.log("No data available");

@@ -3,9 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" href="Assets/nike-favicon.jpg" type="image/x-icon" />
-    <link rel="stylesheet" href="Styles/list-page.css" />
-    <title>Shop Nike</title>
+    <link rel="stylesheet" href="Styles/product-detail.css" />
+    <title>Document</title>
   </head>
   <body id="main-body">
     <div class="navbar" id="main-navbar">
@@ -579,259 +578,20 @@
       <p>Shop All New Arrivals</p>
       <p class="shop-button">Shop</p>
     </div>
-    <div class="main-container">
-      <div id="section-navbar" class="section-navbar">
-        <div class="section-header-container">
-          <div id="page-path" class="page-path">
-            <p id="list-category-label"></p>
-            <p>/</p>
-            <p id="list-subcategory-label"></p>
-          </div>
-          <div class="section-header">
-            <h2 id="list-header"></h2>
-          </div>
+    <div class="details-container">
+      <div class="product-body">
+        <div id="image-gallery" class="image-gallery"></div>
+        <div class="image-display">
+          <img id="image-display" src="" alt="" />
         </div>
-        <div class="toolbar-container">
-          <div id="filter-option" class="filter-visibility-container">
-            <p id="filter-label">Hide Filters</p>
-            <svg
-              aria-hidden="true"
-              class="icon-filter-ds"
-              focusable="false"
-              viewBox="0 0 24 24"
-              role="img"
-              width="24px"
-              height="24px"
-              fill="none"
-            >
-              <path
-                stroke="currentColor"
-                stroke-width="1.5"
-                d="M21 8.25H10m-5.25 0H3"
-              ></path>
-              <path
-                stroke="currentColor"
-                stroke-width="1.5"
-                d="M7.5 6v0a2.25 2.25 0 100 4.5 2.25 2.25 0 000-4.5z"
-                clip-rule="evenodd"
-              ></path>
-              <path
-                stroke="currentColor"
-                stroke-width="1.5"
-                d="M3 15.75h10.75m5 0H21"
-              ></path>
-              <path
-                stroke="currentColor"
-                stroke-width="1.5"
-                d="M16.5 13.5v0a2.25 2.25 0 100 4.5 2.25 2.25 0 000-4.5z"
-                clip-rule="evenodd"
-              ></path>
-            </svg>
+        <div class="product-details">
+          <div class="product-header">
+            <h1 id="product-title" class="product-title"></h1>
+            <!-- <p class="product-gender">Men's Shoes</p> -->
           </div>
-          <div class="sort-container">
-            <p>Sort By</p>
-            <img src="Assets/down-chevron.png" alt="" />
-          </div>
-        </div>
-      </div>
-      <div class="main-canvas">
-        <div id="left-side" class="left-side">
-          <div class="filter-container">
-            <div class="shoe-models">
-              <p>Air Force 1</p>
-              <p>Air Max</p>
-              <p>Nike Dunk</p>
-              <p>Nike P-6000</p>
-              <p>Nike V2K</p>
-              <p>Blazer</p>
-              <p>Jordan</p>
-              <p>Nike Vomero</p>
-            </div>
-            <div class="various-filters">
-              <hr />
-              <div class="gender filter-section">
-                <div class="filter-header">
-                  <h3>Gender</h3>
-                  <img src="Assets/down-chevron.png" alt="" />
-                </div>
-                <div class="filter-content">
-                  <label>
-                    <input type="checkbox" name="gender" value="men" />
-                    Men
-                  </label>
-                  <label>
-                    <input type="checkbox" name="gender" value="women" />
-                    Women
-                  </label>
-                </div>
-              </div>
-              <hr />
-              <div class="price filter-section">
-                <div class="filter-header">
-                  <h3>Shop By Price</h3>
-                  <img src="Assets/down-chevron.png" alt="" />
-                </div>
-                <div class="filter-content">
-                  <label>
-                    <input type="checkbox" name="gender" value="men" />
-                    $0 - $74
-                  </label>
-                  <label>
-                    <input type="checkbox" name="gender" value="women" />
-                    $74 - $150
-                  </label>
-                  <label>
-                    <input type="checkbox" name="gender" value="women" />
-                    $150 - $220
-                  </label>
-                  <label>
-                    <input type="checkbox" name="gender" value="women" />
-                    $220+
-                  </label>
-                </div>
-              </div>
-              <hr />
-            </div>
-          </div>
-        </div>
-        <div id="right-side" class="right-side">
-          <div id="list-container" class="list-container"></div>
         </div>
       </div>
     </div>
-    <div class="footer">
-      <div class="horizontal-line"></div>
-      <div class="flex-footer-container">
-        <div class="footer-container">
-          <div class="footer-section-1">
-            <div class="footer-header">
-              <h4>Resources</h4>
-              <svg
-                aria-hidden="true"
-                class="nds-summary-control"
-                focusable="false"
-                viewBox="0 0 24 24"
-                role="img"
-                width="24px"
-                height="24px"
-                fill="none"
-                id="footer-toogle-resource"
-              >
-                <path
-                  stroke="currentColor"
-                  stroke-width="1.5"
-                  d="M18.966 8.476L12 15.443 5.033 8.476"
-                ></path>
-              </svg>
-            </div>
-            <div
-              class="footer-section-1-content resources-footer"
-              id="footer-resource"
-            >
-              <p>Find a Store</p>
-              <p>Nike Journal</p>
-              <p>Become a Member</p>
-              <p>Feedback</p>
-              <p>Promo Codes</p>
-            </div>
-          </div>
-          <div class="footer-divider"></div>
-          <div class="footer-section-1 hide-mobile">
-            <div class="footer-header">
-              <h4>Help</h4>
-              <svg
-                aria-hidden="true"
-                class="nds-summary-control"
-                focusable="false"
-                viewBox="0 0 24 24"
-                role="img"
-                width="24px"
-                height="24px"
-                fill="none"
-              >
-                <path
-                  stroke="currentColor"
-                  stroke-width="1.5"
-                  d="M18.966 8.476L12 15.443 5.033 8.476"
-                  id="footer-toogle-help"
-                ></path>
-              </svg>
-            </div>
-            <div
-              class="footer-section-1-content resources-footer"
-              id="footer-resource"
-            >
-              <p>Get Help</p>
-              <p>Order Status</p>
-              <p>Shipping and Delivery</p>
-              <p>Returns</p>
-              <p>Payment Options</p>
-              <p>Contact Us</p>
-              <p>Reviews</p>
-            </div>
-          </div>
-          <div class="footer-divider hide-mobile"></div>
-          <div class="footer-section-1 hide-mobile">
-            <div class="footer-header">
-              <h4>Company</h4>
-              <svg
-                aria-hidden="true"
-                class="nds-summary-control"
-                focusable="false"
-                viewBox="0 0 24 24"
-                role="img"
-                width="24px"
-                height="24px"
-                fill="none"
-                id="footer-toogle-resource"
-              >
-                <path
-                  stroke="currentColor"
-                  stroke-width="1.5"
-                  d="M18.966 8.476L12 15.443 5.033 8.476"
-                ></path>
-              </svg>
-            </div>
-            <div
-              class="footer-section-1-content resources-footer"
-              id="footer-resource"
-            >
-              <p>About Nike</p>
-              <p>News</p>
-              <p>Careers</p>
-              <p>Investors</p>
-              <p>Sustainability</p>
-              <p>Purpose</p>
-            </div>
-          </div>
-          <div class="footer-divider hide-mobile"></div>
-        </div>
-        <div class="footer-section-1 flex-column">
-          <svg
-            aria-hidden="true"
-            class="css-npy3on"
-            focusable="false"
-            viewBox="0 0 24 24"
-            role="img"
-            width="24px"
-            height="24px"
-            fill="none"
-          >
-            <path
-              stroke="currentColor"
-              stroke-miterlimit="10"
-              stroke-width="1.5"
-              d="M21.75 12A9.75 9.75 0 0112 21.75M21.75 12A9.75 9.75 0 0012 2.25M21.75 12c0 2.071-4.365 3.75-9.75 3.75S2.25 14.071 2.25 12m19.5 0c0-2.071-4.365-3.75-9.75-3.75S2.25 9.929 2.25 12M12 21.75A9.75 9.75 0 012.25 12M12 21.75c2.9 0 5.25-4.365 5.25-9.75S14.9 2.25 12 2.25m0 19.5c-2.9 0-5.25-4.365-5.25-9.75S9.1 2.25 12 2.25M2.25 12A9.75 9.75 0 0112 2.25"
-            ></path>
-          </svg>
-          <p>Canada</p>
-        </div>
-      </div>
-      <div class="footer-end">
-        <p>© 2024, Nike Clone Made by Pritul Gohil /</p>
-        <img src="Assets/canada.png" />
-      </div>
-    </div>
-    <script src="Script/list-page.js" type="module"></script>
+    <script src="Script/product-detail.js" type="module"></script>
   </body>
 </html>

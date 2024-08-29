@@ -310,8 +310,8 @@ airForce1List.addEventListener("click", function () {
 getSetForSchoolCard.addEventListener("click", function () {
   const pathForListPage = "Latest-And-Greatest/Get-Set-For-School";
   const categoryName = "Category";
-  const subCategoryName = "Latest and Greatest";
-  const listName = "Back to School";
+  const subCategoryName = "Latest And Greatest";
+  const listName = "Get Set For School";
 
   // Construct the URL with all the query parameters
   const url = `list-page.html?path=${encodeURIComponent(
