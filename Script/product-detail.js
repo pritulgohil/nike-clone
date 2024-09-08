@@ -60,6 +60,33 @@ let mobileUser = document.getElementById("mobile-user");
 let imageGallery = document.getElementById("image-gallery");
 let imageDisplay = document.getElementById("image-display");
 let productTitle = document.getElementById("product-title");
+let imageDisplayContainer = document.getElementById("image-display-container");
+let productGenderCategory = document.getElementById("product-gender-category");
+let productPrice = document.getElementById("product-price");
+let productSizesContainer = document.getElementById("product-sizes");
+let suggestedProductsContainer = document.getElementById(
+  "suggested-products-container"
+);
+let sizeAndFitContainer = document.getElementById("size-and-fit-container");
+let sizeAndFitShow = document.getElementById("size-and-fit-show");
+let sizeAndFitIcon = document.getElementById("size-and-fit-icon");
+
+let freeDeliveryAndReturnsContainer = document.getElementById(
+  "free-delivery-and-returns-container"
+);
+let freeDeliveryShow = document.getElementById("free-delivery-show");
+let freeDeliveryIcon = document.getElementById("free-delivery-icon");
+
+let reviewsContainer = document.getElementById("reviews-container");
+let reviewsIcon = document.getElementById("reviews-icon");
+let reviewsShow = document.getElementById("review-show");
+let productDetailsContainer = document.getElementById(
+  "product-details-container"
+);
+let viewProductDetailsButton = document.getElementById(
+  "view-product-details-button"
+);
+let productDetailsCard = document.getElementById("product-details-card");
 
 hamBurgerMenu.addEventListener("click", toggleHamBurgerMenu);
 closeButton.addEventListener("click", closeHamburger);
@@ -343,6 +370,52 @@ mobileLogout.addEventListener("click", function () {
 //     }
 //   );
 // }
+// function generateImageGallery() {
+//   const databaseRef = dbRef(getDatabase());
+//   const inventoryRef = child(
+//     databaseRef,
+//     `Inventory/Categories/${parameter1}/${parameter2}/${parameter3}`
+//   );
+
+//   // Set up a real-time listener
+//   onValue(
+//     inventoryRef,
+//     (snapshot) => {
+//       if (snapshot.exists()) {
+//         snapshot.forEach((childSnapshot) => {
+//           const childData = childSnapshot.val().images;
+//           if (typeof childData === "object" && childData !== null) {
+//             Object.keys(childData).forEach((key) => {
+//               const imageNode = childData[key];
+//               if (imageNode && imageNode.url) {
+//                 // Create an img element
+//                 const imgElement = document.createElement("img");
+//                 imgElement.src = imageNode.url;
+
+//                 // Add mouseover event listener to log the image URL
+//                 imgElement.addEventListener("mouseover", () => {
+//                   console.log(`Image URL: ${imgElement.src}`);
+//                   imageDisplay.src = imgElement.src;
+//                 });
+
+//                 // Append the img element to the gallery
+//                 imageGallery.appendChild(imgElement);
+//               }
+//             });
+//           } else {
+//             console.log("No image nodes found or childData is not an object.");
+//           }
+//         });
+//       } else {
+//         console.log("No data available");
+//       }
+//     },
+//     (error) => {
+//       console.error("Error fetching data:", error);
+//     }
+//   );
+// }
+
 function generateImageGallery() {
   const databaseRef = dbRef(getDatabase());
   const inventoryRef = child(
@@ -359,20 +432,50 @@ function generateImageGallery() {
           const childData = childSnapshot.val().images;
           if (typeof childData === "object" && childData !== null) {
             Object.keys(childData).forEach((key) => {
-              const imageNode = childData[key];
-              if (imageNode && imageNode.url) {
-                // Create an img element
-                const imgElement = document.createElement("img");
-                imgElement.src = imageNode.url;
+              const mediaNode = childData[key];
+              if (mediaNode && mediaNode.url && mediaNode.name) {
+                // Determine the type of media by checking the name property
+                const fileName = mediaNode.name.toLowerCase();
+                const imageExtensions = ["jpg", "jpeg", "png", "gif", "bmp"];
+                const videoExtensions = ["mp4", "webm", "ogg", "mov"];
 
-                // Add mouseover event listener to log the image URL
-                imgElement.addEventListener("mouseover", () => {
-                  console.log(`Image URL: ${imgElement.src}`);
-                  imageDisplay.src = imgElement.src;
-                });
+                // Extract the file extension from the name
+                const fileExtension = fileName.split(".").pop();
 
-                // Append the img element to the gallery
-                imageGallery.appendChild(imgElement);
+                if (imageExtensions.includes(fileExtension)) {
+                  // Create an img element for images
+                  const imgElement = document.createElement("img");
+                  imgElement.src = mediaNode.url;
+
+                  // Add mouseover event listener to log the image URL
+                  imgElement.addEventListener("mouseover", () => {
+                    console.log(`Image URL: ${imgElement.src}`);
+                    imageDisplayContainer.innerHTML = `<img src="${imgElement.src}">`;
+                    // imageDisplay.src = imgElement.src;
+                  });
+
+                  // Append the img element to the gallery
+                  imageGallery.appendChild(imgElement);
+                } else if (videoExtensions.includes(fileExtension)) {
+                  // Create a video element for videos
+                  const videoElement = document.createElement("video");
+                  videoElement.src = mediaNode.url;
+                  videoElement.controls = false; // Add controls to video
+
+                  // Add mouseover event listener to log the video URL
+                  videoElement.addEventListener("mouseover", () => {
+                    console.log(`Video URL: ${videoElement.src}`);
+                    imageDisplay.src = videoElement.src;
+                    imageDisplayContainer.innerHTML = `<video autoplay loop>
+        <source src="${mediaNode.url}" type="video/mp4">
+        <!-- Fallback content if the video cannot be played -->
+        Your browser does not support the video tag.
+    </video>`;
+                  });
+
+                  // Append the video element to the gallery
+                  imageGallery.appendChild(videoElement);
+                }
               }
             });
           } else {
@@ -391,6 +494,44 @@ function generateImageGallery() {
 
 generateImageGallery();
 
+// function displayProductDetails() {
+//   const databaseRef = dbRef(getDatabase());
+//   const inventoryRef = child(
+//     databaseRef,
+//     `Inventory/Categories/${parameter1}/${parameter2}/${parameter3}`
+//   );
+
+//   // Set up a real-time listener
+//   onValue(
+//     inventoryRef,
+//     (snapshot) => {
+//       if (snapshot.exists()) {
+//         snapshot.forEach((childSnapshot) => {
+//           const childData = childSnapshot.val().images.image1.url;
+//           imageDisplay.src = childData;
+
+//           const productHeader = childSnapshot.val().productName;
+//           productTitle.textContent = productHeader;
+
+//           const productGenderData = childSnapshot.val().productGender;
+//           if (productGenderData === "Male") {
+//             productGenderCategory.textContent = "Men";
+//           }
+
+//           const productPriceData = childSnapshot.val().productPrice;
+//           productPrice.textContent = `$${productPriceData}`;
+//           console.log(childSnapshot.val().productSizes);
+//         });
+//       } else {
+//         console.log("No data available");
+//       }
+//     },
+//     (error) => {
+//       console.error("Error fetching data:", error);
+//     }
+//   );
+// }
+
 function displayProductDetails() {
   const databaseRef = dbRef(getDatabase());
   const inventoryRef = child(
@@ -405,11 +546,30 @@ function displayProductDetails() {
       if (snapshot.exists()) {
         snapshot.forEach((childSnapshot) => {
           const childData = childSnapshot.val().images.image1.url;
-          console.log(childData);
           imageDisplay.src = childData;
+
           const productHeader = childSnapshot.val().productName;
-          console.log(productHeader);
           productTitle.textContent = productHeader;
+          document.title = productHeader;
+          const productGenderData = childSnapshot.val().productGender;
+          if (productGenderData === "Male") {
+            productGenderCategory.textContent = "Men";
+          }
+
+          const productPriceData = childSnapshot.val().productPrice;
+          productPrice.textContent = `$${productPriceData}`;
+
+          const productSizes = childSnapshot.val().productSizes;
+
+          // Iterate through all children of productSizes
+          for (const sizeKey in productSizes) {
+            if (productSizes.hasOwnProperty(sizeKey)) {
+              const sizeData = productSizes[sizeKey];
+              console.log(sizeData);
+              productSizesContainer.innerHTML += `<div class = "${sizeData} product-sizes-label"><p>${sizeData}</p></div>`;
+              // You can add more logic here to display or use size data
+            }
+          }
         });
       } else {
         console.log("No data available");
@@ -420,6 +580,111 @@ function displayProductDetails() {
     }
   );
 }
+
 displayProductDetails();
+
+function displaySimilarItems() {
+  const databaseRef = dbRef(getDatabase());
+  const inventoryRef = child(
+    databaseRef,
+    `Inventory/Categories/${parameter1}/${parameter2}/`
+  );
+
+  // Set up a real-time listener
+  onValue(
+    inventoryRef,
+    (snapshot) => {
+      if (snapshot.exists()) {
+        snapshot.forEach((childSnapshot) => {
+          const productData = childSnapshot.val().productDetails;
+
+          // Create the product container
+          const productContainer = document.createElement("div");
+          productContainer.className = "products-container";
+          productContainer.innerHTML = `
+            <div class="suggested-product-image">
+              <img
+                src="${productData.images.image1.url}"
+                alt="${productData.productName}"
+              />
+            </div>
+            <div class="suggested-product-header">
+              <p>${productData.productName}</p>
+            </div>
+            <div class="suggested-product-gender-category">
+              <p>${productData.productGender === "Female" ? "Women" : "Men"}</p>
+            </div>
+            <div class="suggested-product-price">
+              <p>$${productData.productPrice}</p>
+            </div>
+          `;
+
+          // Add click event listener to the product container
+          productContainer.addEventListener("click", () => {
+            console.log("Product clicked:", productData.productName);
+            parameter3 = productData.productName;
+            console.log(parameter3);
+            const url = `product-detail.html?parameter1=${encodeURIComponent(
+              parameter1
+            )}&parameter2=${encodeURIComponent(
+              parameter2
+            )}&parameter3=${encodeURIComponent(parameter3)}`;
+            // Additional logic for when a product is clicked
+            window.location.href = url;
+          });
+
+          // Append the product container to the suggested products container
+          suggestedProductsContainer.appendChild(productContainer);
+        });
+      } else {
+        console.log("No data available");
+      }
+    },
+    (error) => {
+      console.error("Error fetching data:", error);
+    }
+  );
+}
+
+displaySimilarItems();
+
+sizeAndFitContainer.addEventListener("click", function () {
+  sizeAndFitShow.classList.toggle("show-toggler");
+  sizeAndFitShow.className === "";
+  sizeAndFitIcon.style.transition = "transform 0.3s ease";
+  if (sizeAndFitIcon.style.transform === "rotate(-180deg)") {
+    sizeAndFitIcon.style.transform = "rotate(0deg)";
+  } else {
+    sizeAndFitIcon.style.transform = "rotate(-180deg)";
+  }
+});
+
+freeDeliveryAndReturnsContainer.addEventListener("click", function () {
+  freeDeliveryShow.classList.toggle("show-toggler");
+  freeDeliveryShow.className === "";
+  freeDeliveryIcon.style.transition = "transform 0.3s ease";
+  if (freeDeliveryIcon.style.transform === "rotate(-180deg)") {
+    freeDeliveryIcon.style.transform = "rotate(0deg)";
+  } else {
+    freeDeliveryIcon.style.transform = "rotate(-180deg)";
+  }
+});
+
+reviewsContainer.addEventListener("click", function () {
+  reviewsShow.classList.toggle("show-toggler");
+  reviewsShow.className === "";
+  reviewsIcon.style.transition = "transform 0.5s ease";
+  if (reviewsIcon.style.transform === "rotate(-180deg)") {
+    reviewsIcon.style.transform = "rotate(0deg)";
+  } else {
+    reviewsIcon.style.transform = "rotate(-180deg)";
+  }
+});
+
+viewProductDetailsButton.addEventListener("click", function () {
+  productDetailsContainer.style.display = "flex";
+  document.body.style.overflow = "hidden";
+  productDetailsCard.style.overflow = "auto";
+});
 
 // Script --- End

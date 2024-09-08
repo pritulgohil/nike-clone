@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="Styles/product-detail.css" />
+    <link rel="icon" href="Assets/nike-favicon.jpg" type="image/x-icon" />
     <title>Document</title>
   </head>
   <body id="main-body">
@@ -578,10 +579,61 @@
       <p>Shop All New Arrivals</p>
       <p class="shop-button">Shop</p>
     </div>
+    <div id="product-details-container" class="product-details-container">
+      <div id="product-details-card" class="product-details-card">
+        <div class="product-details-header">
+          <div class="product-details-left-side">
+            <div class="product-details-image">
+              <img
+                src="Assets/Product Images/Nike Air Force 1 '07 /Nike Air Force 1 '07-1.png"
+                alt=""
+              />
+            </div>
+            <div class="product-details-name-and-price">
+              <div class="product-details-name">
+                <h3>Nike Air Force 1 Low EVO</h3>
+              </div>
+              <div class="product-details-price">
+                <p>$185</p>
+              </div>
+            </div>
+          </div>
+          <div class="product-details-right-side">
+            <div class="product-details-close-button">
+              <svg
+                aria-hidden="true"
+                focusable="false"
+                viewBox="0 0 24 24"
+                role="img"
+                width="24px"
+                height="24px"
+                fill="none"
+              >
+                <path
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  d="M18.973 5.027L5.028 18.972m0-13.945l13.944 13.945"
+                ></path>
+              </svg>
+            </div>
+          </div>
+        </div>
+        <div class="product-details-information">
+          <p>
+            Comfortable, durable and timeless—it's number 1 for a reason.
+            Cutaway details expose a premium textile Swoosh logo and full-length
+            Air units in the outsole, revealing the Air Force 1 in a new way.
+            The classic '80s construction pairs with bold details for style that
+            tracks whether you're on court or on the go.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!-- Here goes the card -->
     <div class="details-container">
       <div class="product-body">
         <div id="image-gallery" class="image-gallery"></div>
-        <div class="image-display">
+        <div id="image-display-container" class="image-display">
           <img id="image-display" src="" alt="" />
         </div>
         <div class="product-details">
@@ -589,7 +641,383 @@
             <h1 id="product-title" class="product-title"></h1>
             <!-- <p class="product-gender">Men's Shoes</p> -->
           </div>
+          <div
+            id="product-gender-category"
+            class="product-gender-category"
+          ></div>
+          <div class="product-price" id="product-price"></div>
+          <div id="product-size-container" class="product-size-container">
+            <div class="product-size-header">
+              <p class="select-size">Select Size</p>
+              <p class="size-guide">Size Guide</p>
+            </div>
+            <div class="product-sizes" id="product-sizes"></div>
+            <div class="product-buttons">
+              <div class="add-to-cart">
+                <button class="add-to-cart-button">Add to Bag</button>
+              </div>
+              <div class="favourite">
+                <button class="favourite-button">
+                  Favourite<svg
+                    aria-hidden="true"
+                    focusable="false"
+                    viewBox="0 0 24 24"
+                    role="img"
+                    width="24px"
+                    height="24px"
+                    fill="none"
+                  >
+                    <path
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      d="M16.794 3.75c1.324 0 2.568.516 3.504 1.451a4.96 4.96 0 010 7.008L12 20.508l-8.299-8.299a4.96 4.96 0 010-7.007A4.923 4.923 0 017.205 3.75c1.324 0 2.568.516 3.504 1.451l.76.76.531.531.53-.531.76-.76a4.926 4.926 0 013.504-1.451"
+                    ></path>
+                    <title>non-filled</title>
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <div class="product-text">
+              <div class="product-description">
+                <p>
+                  The radiance lives on in the Nike Air Force 1 '07, the
+                  basketball original that puts a fresh spin on what you know
+                  best: durably stitched overlays, clean finishes and the
+                  perfect amount of flash to make you shine.
+                </p>
+              </div>
+              <div class="product-specs">
+                <ul>
+                  <li>Colour Shown: White/White</li>
+                  <li>Style: CW2288-111</li>
+                  <li>Country/Region of Origin: China, India, Vietnam</li>
+                </ul>
+              </div>
+              <div class="view-product-details">
+                <p id="view-product-details-button">View Product Details</p>
+              </div>
+              <div class="product-togglers">
+                <div class="size-and-fit-main-container">
+                  <div
+                    id="size-and-fit-container"
+                    class="size-and-fit toggler-section"
+                  >
+                    <p class="toggler-header">Size & Fit</p>
+                    <svg
+                      aria-hidden="true"
+                      class="nds-summary-control toggler-button-icon"
+                      focusable="false"
+                      viewBox="0 0 24 24"
+                      role="img"
+                      width="24px"
+                      height="24px"
+                      fill="none"
+                      id="size-and-fit-icon"
+                    >
+                      <path
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                        d="M18.966 8.476L12 15.443 5.033 8.476"
+                      ></path>
+                    </svg>
+                  </div>
+                  <div
+                    id="size-and-fit-show"
+                    class="show-size-and-fit hide-toggler"
+                  >
+                    <p>Nike Members enjoy free returns (exclusions apply).</p>
+                  </div>
+                </div>
+                <hr class="toggler-divider" />
+                <div
+                  class="size-and-fit-main-container"
+                  id="free-delivery-and-returns-container"
+                >
+                  <div class="size-and-fit toggler-section">
+                    <p class="toggler-header">Free Delivery and Returns</p>
+                    <svg
+                      aria-hidden="true"
+                      class="nds-summary-control toggler-button-icon"
+                      focusable="false"
+                      viewBox="0 0 24 24"
+                      role="img"
+                      width="24px"
+                      height="24px"
+                      fill="none"
+                      id="free-delivery-icon"
+                    >
+                      <path
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                        d="M18.966 8.476L12 15.443 5.033 8.476"
+                      ></path>
+                    </svg>
+                  </div>
+                  <div
+                    id="free-delivery-show"
+                    class="show-size-and-fit hide-toggler"
+                  >
+                    <p>Nike Members enjoy free returns (exclusions apply).</p>
+                  </div>
+                </div>
+                <hr class="toggler-divider" />
+                <div class="size-and-fit-main-container" id="reviews-container">
+                  <div class="size-and-fit toggler-section">
+                    <p class="toggler-header">How This Was Made</p>
+                    <svg
+                      aria-hidden="true"
+                      class="nds-summary-control toggler-button-icon"
+                      focusable="false"
+                      viewBox="0 0 24 24"
+                      role="img"
+                      width="24px"
+                      height="24px"
+                      fill="none"
+                      id="reviews-icon"
+                    >
+                      <path
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                        d="M18.966 8.476L12 15.443 5.033 8.476"
+                      ></path>
+                    </svg>
+                  </div>
+                  <div id="review-show" class="show-size-and-fit hide-toggler">
+                    <p>
+                      This product was responsibly designed utilising recycled
+                      materials from post-consumer and/or post-manufactured
+                      waste. One of our biggest steps on our journey to zero
+                      carbon and zero waste is in choosing our materials because
+                      they account for more than 70% of any product's footprint.
+                      By reusing existing plastics, yarns and textiles, we
+                      significantly reduce our emissions. Our goal is to use as
+                      many recycled materials as possible without compromising
+                      on performance, durability and style.
+                    </p>
+                  </div>
+                </div>
+                <hr class="toggler-divider" />
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
+    </div>
+    <div class="post-details-container">
+      <div class="post-details-container-header">
+        <h2>How Others Are Wearing It</h2>
+        <p>
+          Upload your photo or mention @Nike on Instagram for a chance to be
+          featured.
+        </p>
+      </div>
+      <div class="post-details-container-button">
+        <button>Upload Your Photo</button>
+      </div>
+      <div class="instagram-promotion">
+        <div class="promotion-container">
+          <div class="promotion-image">
+            <img src="Assets/Instagram-Promotion/Instagram-1.webp" alt="" />
+          </div>
+          <div class="promotion-username">
+            <p>@rawww.af</p>
+          </div>
+        </div>
+        <div class="promotion-container">
+          <div class="promotion-image">
+            <img src="Assets/Instagram-Promotion/Instagram-2.webp" alt="" />
+          </div>
+          <div class="promotion-username">
+            <p>@blackthacreator</p>
+          </div>
+        </div>
+        <div class="promotion-container">
+          <div class="promotion-image">
+            <img src="Assets/Instagram-Promotion/Instagram-3.webp" alt="" />
+          </div>
+          <div class="promotion-username">
+            <p>@nastyflemme</p>
+          </div>
+        </div>
+        <div class="promotion-container">
+          <div class="promotion-image">
+            <img src="Assets/Instagram-Promotion/Instagram-4.jpeg" alt="" />
+          </div>
+          <div class="promotion-username">
+            <p>@_kvnprincemiller_</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="product-showcase">
+      <div class="product-showcase-header">
+        <h2>Explore the Nike Air Force 1 '07 Men's Shoes</h2>
+      </div>
+      <div class="product-showcase-image">
+        <img src="Assets/Product-Showcase/Product-Showcase-1.jpg" alt="" />
+      </div>
+      <div class="product-showcase-header">
+        <h2>
+          The stitched overlays on the upper add heritage style, durability and
+          support.
+        </h2>
+      </div>
+      <div class="product-showcase-image">
+        <img src="Assets/Product-Showcase/Product-Showcase-2.jpg" alt="" />
+      </div>
+      <div class="product-showcase-header">
+        <h2>
+          Originally designed for performance hoops, the Nike Air cushioning
+          adds lightweight, all-day comfort.
+        </h2>
+      </div>
+      <div class="product-showcase-image">
+        <img src="Assets/Product-Showcase/Product-Showcase-3.jpg" alt="" />
+      </div>
+      <div class="product-showcase-header">
+        <h2>The low-cut silhouette adds a clean, streamlined look.</h2>
+      </div>
+    </div>
+    <div class="suggested-products">
+      <div class="suggested-products-header">
+        <h2>YOU MIGHT ALSO LIKE</h2>
+      </div>
+      <div
+        id="suggested-products-container"
+        class="suggested-products-container"
+      ></div>
+    </div>
+    <div class="footer">
+      <div class="horizontal-line"></div>
+      <div class="flex-footer-container">
+        <div class="footer-container">
+          <div class="footer-section-1">
+            <div class="footer-header">
+              <h4>Resources</h4>
+              <svg
+                aria-hidden="true"
+                class="nds-summary-control"
+                focusable="false"
+                viewBox="0 0 24 24"
+                role="img"
+                width="24px"
+                height="24px"
+                fill="none"
+                id="footer-toogle-resource"
+              >
+                <path
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  d="M18.966 8.476L12 15.443 5.033 8.476"
+                ></path>
+              </svg>
+            </div>
+            <div
+              class="footer-section-1-content resources-footer"
+              id="footer-resource"
+            >
+              <p>Find a Store</p>
+              <p>Nike Journal</p>
+              <p>Become a Member</p>
+              <p>Feedback</p>
+              <p>Promo Codes</p>
+            </div>
+          </div>
+          <div class="footer-divider"></div>
+          <div class="footer-section-1 hide-mobile">
+            <div class="footer-header">
+              <h4>Help</h4>
+              <svg
+                aria-hidden="true"
+                class="nds-summary-control"
+                focusable="false"
+                viewBox="0 0 24 24"
+                role="img"
+                width="24px"
+                height="24px"
+                fill="none"
+              >
+                <path
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  d="M18.966 8.476L12 15.443 5.033 8.476"
+                  id="footer-toogle-help"
+                ></path>
+              </svg>
+            </div>
+            <div
+              class="footer-section-1-content resources-footer"
+              id="footer-resource"
+            >
+              <p>Get Help</p>
+              <p>Order Status</p>
+              <p>Shipping and Delivery</p>
+              <p>Returns</p>
+              <p>Payment Options</p>
+              <p>Contact Us</p>
+              <p>Reviews</p>
+            </div>
+          </div>
+          <div class="footer-divider hide-mobile"></div>
+          <div class="footer-section-1 hide-mobile">
+            <div class="footer-header">
+              <h4>Company</h4>
+              <svg
+                aria-hidden="true"
+                class="nds-summary-control"
+                focusable="false"
+                viewBox="0 0 24 24"
+                role="img"
+                width="24px"
+                height="24px"
+                fill="none"
+                id="footer-toogle-resource"
+              >
+                <path
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  d="M18.966 8.476L12 15.443 5.033 8.476"
+                ></path>
+              </svg>
+            </div>
+            <div
+              class="footer-section-1-content resources-footer"
+              id="footer-resource"
+            >
+              <p>About Nike</p>
+              <p>News</p>
+              <p>Careers</p>
+              <p>Investors</p>
+              <p>Sustainability</p>
+              <p>Purpose</p>
+            </div>
+          </div>
+          <div class="footer-divider hide-mobile"></div>
+        </div>
+        <div class="footer-section-1 flex-column">
+          <svg
+            aria-hidden="true"
+            class="css-npy3on"
+            focusable="false"
+            viewBox="0 0 24 24"
+            role="img"
+            width="24px"
+            height="24px"
+            fill="none"
+          >
+            <path
+              stroke="currentColor"
+              stroke-miterlimit="10"
+              stroke-width="1.5"
+              d="M21.75 12A9.75 9.75 0 0112 21.75M21.75 12A9.75 9.75 0 0012 2.25M21.75 12c0 2.071-4.365 3.75-9.75 3.75S2.25 14.071 2.25 12m19.5 0c0-2.071-4.365-3.75-9.75-3.75S2.25 9.929 2.25 12M12 21.75A9.75 9.75 0 012.25 12M12 21.75c2.9 0 5.25-4.365 5.25-9.75S14.9 2.25 12 2.25m0 19.5c-2.9 0-5.25-4.365-5.25-9.75S9.1 2.25 12 2.25M2.25 12A9.75 9.75 0 0112 2.25"
+            ></path>
+          </svg>
+          <p>Canada</p>
+        </div>
+      </div>
+      <div class="footer-end">
+        <p>© 2024, Nike Clone Made by Pritul Gohil /</p>
+        <img src="Assets/canada.png" />
       </div>
     </div>
     <script src="Script/product-detail.js" type="module"></script>

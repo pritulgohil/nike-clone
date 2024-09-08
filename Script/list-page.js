@@ -59,6 +59,25 @@ let danceMobile = document.getElementById("dance-mobile");
 let mobileUser = document.getElementById("mobile-user");
 let listCategoryLabel = document.getElementById("list-category-label");
 let totalNodes;
+let filterHeader = document.querySelectorAll(".filter-header");
+console.log(filterHeader);
+
+filterHeader.forEach(function (header) {
+  header.addEventListener("click", function () {
+    console.log(header.id);
+    if (header.id === "gender-filter") {
+      document
+        .getElementById("gender-content")
+        .classList.toggle("show-filter-content");
+      document.getElementById("gender-icon").classList.toggle("filter-open");
+    } else if (header.id === "price-filter") {
+      document
+        .getElementById("price-content")
+        .classList.toggle("show-filter-content");
+      document.getElementById("price-icon").classList.toggle("filter-open");
+    }
+  });
+});
 
 hamBurgerMenu.addEventListener("click", toggleHamBurgerMenu);
 closeButton.addEventListener("click", closeHamburger);

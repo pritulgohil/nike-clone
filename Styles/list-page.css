@@ -598,7 +598,7 @@ html {
   height: 100vh;
   display: block;
   padding-right: 50px;
-  z-index: -1000;
+  z-index: 1000;
 }
 
 .right-side {
@@ -619,6 +619,7 @@ html {
 
 .various-filters {
   margin-top: 50px;
+  z-index: 1000;
 }
 
 .various-filters hr {
@@ -634,6 +635,8 @@ html {
   justify-content: space-between;
   align-items: center;
   margin-top: 30px;
+  z-index: 1000;
+  cursor: pointer;
 }
 
 .filter-header h3 {
@@ -643,6 +646,11 @@ html {
 .filter-header img {
   width: 15px;
   height: 15px;
+  transition: transform 0.2s;
+}
+
+.filter-header img.filter-open {
+  transform: rotate(-180deg);
 }
 
 .filter-content {
@@ -650,6 +658,13 @@ html {
   gap: 10px;
   margin-top: 20px;
   display: none;
+  opacity: 0;
+}
+
+.filter-content.show-filter-content {
+  display: flex;
+  opacity: 1;
+  transition: opacity 0.2s;
 }
 
 .filter-content.show-filter {
@@ -659,8 +674,9 @@ html {
 .filter-content label {
   display: flex;
   align-items: center;
-  font-size: 16px;
+  font-size: 18px;
   gap: 10px;
+  margin-top: 10px;
 }
 
 .list-card {
